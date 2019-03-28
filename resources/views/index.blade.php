@@ -6,42 +6,37 @@ State Police System
 
 
 @section('content')
-<!-- Banner start -->
 <div class="banner" id="banner">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="http://placehold.it/1920x850" alt="banner">
+                <img class="d-block w-100" src="{{asset('front')}}/img/police2.jpg" alt="banner">
                 <div class="carousel-caption banner-slider-inner d-flex h-100">
                     <div class="carousel-content container">
                         <div class="text-l">
-                            <h1 data-animation="animated fadeInDown delay-05s">Grow Your Business</h1>
-                            <p data-animation="animated fadeInUp delay-10s">This is business website template based on Bootstrap 4 framework.</p>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme">Get Started Now</a>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-white-lg-outline">Free Download</a>
+                            <h1 data-animation="animated fadeInDown delay-05s">State Police System</h1>
+                            <p data-animation="animated fadeInUp delay-10s">Ease your work</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="http://placehold.it/1920x850" alt="banner">
+                <img class="d-block w-100" src="{{asset('front')}}/img/police3.jpg" alt="banner">
                 <div class="carousel-caption banner-slider-inner d-flex h-100">
                     <div class="carousel-content container">
                         <div class="text-r">
-                            <h1 data-animation="animated fadeInDown delay-05s">Grow Your Business</h1>
-                            <p data-animation="animated fadeInUp delay-10s">This is business website template based on Bootstrap 4 framework.</p>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme">Get Started Now</a>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-white-lg-outline">Free Download</a>
+                            <h1 data-animation="animated fadeInDown delay-05s">Our services</h1>
+                            <p data-animation="animated fadeInUp delay-10s">Protect the people</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="http://placehold.it/1920x850" alt="banner">
+                <img class="d-block w-100" src="{{'front'}}/img/police.jpg" alt="banner">
                 <div class="carousel-caption banner-slider-inner d-flex h-100">
                     <div class="carousel-content container">
                         <div class="text-c">
-                            <h1 data-animation="animated fadeInDown delay-05s">Grow Your Business</h1>
+                            <h1 data-animation="animated fadeInDown delay-05s">State Police System</h1>
                             <p data-animation="animated fadeInUp delay-10s">This is business website template based on Bootstrap 4 framework.</p>
                             <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme">Get Started Now</a>
                             <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-white-lg-outline">Free Download</a>
