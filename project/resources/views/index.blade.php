@@ -496,73 +496,6 @@ State Police System
 </div>
 <!-- Counters end -->
 
-{{--<!-- Pricing tables start -->--}}
-{{--<div class="pricing-tables content-area-2">--}}
-{{--    <div class="container">--}}
-{{--        <div class="main-title">--}}
-{{--            <h1><span>Our</span> Pricing</h1>--}}
-{{--            <p>Finding your perfect plan for your business.</p>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-xl-4 col-lg-4 col-md-12">--}}
-{{--                <div class="pricing-2">--}}
-{{--                    <div class="title">Basic Plan</div>--}}
-{{--                    <div class="price-for-user">--}}
-{{--                        <div class="price"><sup>$</sup><span class="dolar">54</span><small class="month">per month</small></div>--}}
-{{--                    </div>--}}
-{{--                    <div class="content">--}}
-{{--                        <ul>--}}
-{{--                            <li>20 Projects</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                            <li>50 Email Accounts</li>--}}
-{{--                            <li>12GB Bandwidth</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="button"><a href="#" class="btn btn-border btn-sm">Get started</a></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-xl-4 col-lg-4 col-md-12 ">--}}
-{{--                <div class="pricing-2">--}}
-{{--                    <div class="title">Professional</div>--}}
-{{--                    <div class="price-for-user">--}}
-{{--                        <div class="price"><sup>$</sup><span class="dolar">35</span><small class="month">per month</small></div>--}}
-{{--                    </div>--}}
-{{--                    <div class="content">--}}
-{{--                        <ul>--}}
-{{--                            <li>20 Projects</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                            <li>50 Email Accounts</li>--}}
-{{--                            <li>12GB Bandwidth</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="button"><a href="#" class="btn btn-sm btn-color">Get started</a></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-xl-4 col-lg-4 col-md-12">--}}
-{{--                <div class="pricing-2">--}}
-{{--                    <div class="title">Exclusive</div>--}}
-{{--                    <div class="price-for-user">--}}
-{{--                        <div class="price"><sup>$</sup><span class="dolar">38</span><small class="month">per month</small></div>--}}
-{{--                    </div>--}}
-{{--                    <div class="content">--}}
-{{--                        <ul>--}}
-{{--                            <li>20 Projects</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                            <li>50 Email Accounts</li>--}}
-{{--                            <li>12GB Bandwidth</li>--}}
-{{--                            <li>32GB Storage</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="button"><a href="#" class="btn btn-border btn-sm">Get started</a></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<!-- Pricing tables end -->--}}
-
 <!-- Testimonial 1 start -->
 <div class="testimonial-1 overview-bgi">
     <div class="container">
@@ -700,7 +633,7 @@ State Police System
 <div class="blog content-area-2">
     <div class="container">
         <div class="main-title">
-            <h1><span>Our</span> Blog</h1>
+            <h1>News</h1>
             <p>Check out some recent news posts.</p>
         </div>
         <div class="row">
@@ -860,23 +793,4 @@ State Police System
 </div>
 <!-- partner end -->
 
-<!-- intro section start -->
-<div class="intro-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
-                <img src="assets/img/logos/logo-white.png" alt="loo">
-            </div>
-            <div class="col-xl-8 col-lg-7 col-md-7 col-sm-12">
-                <div class="intro-text">
-                    <h3>have any queries? call us anytime</h3>
-                </div>
-            </div>
-            <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12">
-                <a href="contact.html" class="btn btn-md">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- intro section end -->
 @stop
