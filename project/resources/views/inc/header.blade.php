@@ -13,15 +13,15 @@
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown active">
-                                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home
+                                <a class="nav-link" href="{{route('index')}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="/services" id="navbarDropdown9" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Services
+                                <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Services
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="/team" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    Team
+                                <a class="nav-link" href="{{route('team')}}" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    Team
                                 </a>
                             </li>
                             <li class="nav-item dropdown">

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/about',function (){
     return view('about');
@@ -21,9 +21,13 @@ Route::get('/about',function (){
 
 Route::get('/services',function (){
     return view('services');
-});
+})->name('services');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/team',function(){
+    return view('team');
+})->name('team');
