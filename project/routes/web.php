@@ -31,3 +31,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/team',function(){
     return view('team');
 })->name('team');
+Route::get('/news',function(){
+    return view('news');
+})->name('news');
