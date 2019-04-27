@@ -37,9 +37,9 @@ State Police System
                     <div class="carousel-content container">
                         <div class="text-c">
                             <h1 data-animation="animated fadeInDown delay-05s">State Police System</h1>
-                            <p data-animation="animated fadeInUp delay-10s">This is business website template based on Bootstrap 4 framework.</p>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme">Get Started Now</a>
-                            <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-white-lg-outline">Free Download</a>
+                            <p data-animation="animated fadeInUp delay-10s">Welcome to the State Police's Online system.</p>
+                            <a data-animation="animated fadeInUp delay-10s" href="/login" class="btn btn-lg btn-round btn-theme">Already registred? Login</a>
+                            <a data-animation="animated fadeInUp delay-10s" href="/register" class="btn btn-lg btn-round btn-white-lg-outline">Register Now</a>
                         </div>
                     </div>
                 </div>
