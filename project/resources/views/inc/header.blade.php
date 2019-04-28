@@ -17,7 +17,7 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Services
+                                <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9">  Services
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
