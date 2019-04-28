@@ -1,10 +1,25 @@
 @extends('inc.layout')
-@extends('layouts.app')
 @section('title')
 Services
 @stop
 
 @section('content')
+    <!-- Sub banner start -->
+    <div class="sub-banner overview-bgi">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Services</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="{{route('index')}}">Home</a></li>
+                    <li class="active">Services </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Sub banner end -->
+
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

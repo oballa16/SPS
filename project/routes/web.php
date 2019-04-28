@@ -34,3 +34,6 @@ Route::get('/team',function(){
 Route::get('/news',function(){
     return view('news');
 })->name('news');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
