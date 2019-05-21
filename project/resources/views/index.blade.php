@@ -65,12 +65,12 @@ State Police System
         <div class="row">
             <div class="col-lg-5 col-md-5">
                 <div class="managment-info">
-                    <h1><span>Why</span> Choose Us?</h1>
+                    <h1><span>Misioni </span></h1>
                     <div class="managment-border-"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<span> aliqua.Ut enim ad minim veniam, quis</span></p>
+                    <p>“Garantimi i një mjedisi të sigurtë për komunitetin nëpërmjet policimit me standartet më të larta të performancës, krijimit të një kulture bashkëkohore manaxhimi dhe të mbështetur meinfrastrukturën më të përparuar”</p>
                     <ul>
-                        <li><i class="flaticon-up-arrow"></i>Deep Customization Process</li>
-                        <li><i class="flaticon-building"></i>Industry Specialization</li>
+                        <li><i class="flaticon-up-arrow"></i>“Së bashku për një komunitet më të sigurt”</li>
+                        <li><i class="flaticon-building"></i>Synimi strategjik aftagjatë i Policisë së Shtetit është krijimi i një mjedisi sa më të sigurt për shoqërinë shqiptare, i cili do të sjellë përmirësim në cilësinë e jetës së qytetarëve duke e bërë Shqipërinë një vend të dëshirueshëm për të punuar e jetuar.</li>
                         <li><i class="flaticon-three"></i>Unique Sales Methodoligies</li>
                     </ul>
                 </div>
