@@ -32,7 +32,7 @@
 {{--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPoppins:400,500,700,800,900%7CRoboto:100,300,400,400i,500,700">--}}
 
 <!-- Custom Stylesheet -->
-    <link type="text/css" rel="stylesheet" href="{{'front'}}/css/style2.css">
+    <link type="text/css" rel="stylesheet" href="{{asset('front')}}/css/style2.css">
     {{--<link rel="stylesheet" type="text/css" id="style_sheet" href="{{'front'}}/css/skins/default.css">--}}
 
 </head>
@@ -62,7 +62,7 @@
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
+                    <span>Open Sidebar</span>
                 </button>
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

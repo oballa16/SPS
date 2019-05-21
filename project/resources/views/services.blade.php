@@ -1,6 +1,6 @@
 @extends('inc.layout')
 @section('title')
-Services
+    Services
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@ Services
                 <h1>Services</h1>
                 <ul class="breadcrumbs">
                     <li><a href="{{route('index')}}">Home</a></li>
-                    <li class="active">Services </li>
+                    <li class="active">Services</li>
                 </ul>
             </div>
         </div>
@@ -35,10 +35,15 @@ Services
                         Welcome to the State Police Services System
                     </div>
                     <div class="containsServices">
-                        <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme" style="width: 100%;">Check your tickets</a>
-                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme" style="width: 100%;">List of wanted people</a>
-                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme" style="width: 100%;">File a complaint</a>
-                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme" style="width: 100%;">Search for patrols nearby</a>
+                        <a data-animation="animated fadeInUp delay-10s" href="#" class="btn btn-lg btn-round btn-theme"
+                           style="width: 100%;">Check your tickets</a>
+                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#"
+                                   class="btn btn-lg btn-round btn-theme" style="width: 100%;">List of wanted people</a>
+                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#"
+                                   class="btn btn-lg btn-round btn-theme" style="width: 100%;">File a complaint</a>
+                        <br><br><a data-animation="animated fadeInUp delay-10s" href="#"
+                                   class="btn btn-lg btn-round btn-theme" style="width: 100%;">Search for patrols
+                            nearby</a>
                     </div>
                 </div>
             </div>
