@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset('front')}}/fonts/flaticon/font/flaticon.css">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="{{'front'}}/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('front')}}/img/favicon.ico" type="image/x-icon">
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css"
@@ -23,7 +23,7 @@
 
     <!-- Custom Stylesheet -->
     <link type="text/css" rel="stylesheet" href="{{asset('front')}}/css/style.css">
-    <link rel="stylesheet" type="text/css" id="style_sheet" href="{{'front'}}/css/skins/blue-light.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="{{asset('front')}}/css/skins/blue-light.css">
 
 </head>
 <body id="top">
@@ -51,24 +51,23 @@
     </form>
 </div>
 <!-- External JS libraries -->
-<script src="{{'front'}}/js/jquery-2.2.0.min.js"></script>
-<script src="{{'front'}}/js/popper.min.js"></script>
-<script src="{{'front'}}/js/bootstrap.min.js"></script>
-<script src="{{'front'}}/js/jquery.selectBox.js"></script>
-<script src="{{'front'}}/js/rangeslider.js"></script>
-<script src="{{'front'}}/js/jquery.magnific-popup.min.js"></script>
-<script src="{{'front'}}/js/jquery.filterizr.js"></script>
-<script src="{{'front'}}/js/wow.min.js"></script>
-<script src="{{'front'}}/js/backstretch.js"></script>
-<script src="{{'front'}}/js/jquery.countdown.js"></script>
-<script src="{{'front'}}/js/jquery.scrollUp.js"></script>
-<script src="{{'front'}}/js/particles.min.js"></script>
-<script src="{{'front'}}/js/typed.min.js"></script>
-<script src="{{'front'}}/js/jquery.mb.YTPlayer.js"></script>
-<script src="{{'front'}}/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{{asset('front')}}/js/jquery-2.2.0.min.js"></script>
+<script src="{{asset('front')}}/js/popper.min.js"></script>
+<script src="{{asset('front')}}/js/bootstrap.min.js"></script>
+<script src="{{asset('front')}}/js/jquery.selectBox.js"></script>
+<script src="{{asset('front')}}/js/rangeslider.js"></script>
+<script src="{{asset('front')}}/js/jquery.magnific-popup.min.js"></script>
+<script src="{{asset('front')}}/js/jquery.filterizr.js"></script>
+<script src="{{asset('front')}}/js/wow.min.js"></script>
+<script src="{{asset('front')}}/js/backstretch.js"></script>
+<script src="{{asset('front')}}/js/jquery.countdown.js"></script>
+<script src="{{asset('front')}}/js/jquery.scrollUp.js"></script>
+<script src="{{asset('front')}}/js/particles.min.js"></script>
+<script src="{{asset('front')}}/js/typed.min.js"></script>
+<script src="{{asset('front')}}/js/jquery.mb.YTPlayer.js"></script>
+<script src="{{asset('front')}}/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
-<script src="{{'front'}}/js/ie-emulation-modes-warning.js"></script>
 <!-- Custom JS Script -->
-<script src="{{'front'}}/js/app.js"></script>
+<script src="{{asset('front')}}/js/app.js"></script>
 </body>
 </html>
