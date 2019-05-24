@@ -7,25 +7,29 @@
                     <a class="navbar-brand logo" href="/">
                         <img src="{{asset('front')}}/img/logos/logo.png" alt="logo">State Police System
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="fa fa-bars"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown active">
-                                <a class="nav-link" href="{{route('index')}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home
+                                <a class="nav-link" href="{{route('index')}}" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9">  Services
+                                <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9"> Services
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{route('team')}}" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    Team
+                                <a class="nav-link" href="{{route('team')}}" id="navbarDropdownMenuLink2"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Team
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link " href="/news" id="navbarDropdownMenuLink5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">       Newsroom
+                                <a class="nav-link " href="/news" id="navbarDropdownMenuLink5" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"> Newsroom
                                 </a>
                             </li>
                             <li class="nav-item dropdown d-none d-md-block">

@@ -1,26 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
+    @if (session('status'))
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Dashboard</div>
+                        <div class="card-body">
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
+                                {{\Illuminate\Support\Facades\Session::forget('status')}}
+                                {{\Illuminate\Support\Facades\Session::save()}}
                             </div>
-                        @endif
-                        You are logged in!
+                            You are logged in!
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
-    <div id="content-wrapper">
+    <div id="content-wrapper" style="margin-top: 20px">
 
         <div class="container-fluid">
 
@@ -90,7 +91,24 @@
                             </div>
                             <div class="mr-5">Citizen Lookup</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('citizenLookup')}}">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                  <i class="fas fa-angle-right"></i>
+                </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-danger o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="mr-5">View Complaints</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewComplaints')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>

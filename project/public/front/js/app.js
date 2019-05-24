@@ -7,7 +7,7 @@ $(function () {
         // populateColorPlates();
         setTimeout(function () {
             $(".page_loader").fadeOut("fast");
-            $('link[id="style_sheet"]').attr('href', 'front/css/skins/blue-light.css');
+            $('link[id="style_sheet"]').attr('href', '../../front/css/skins/blue-light.css');
         }, 1000);
         if ($('body .filter-portfolio').length > 0) {
             $(function () {
@@ -33,36 +33,32 @@ $(function () {
         doSticky();
     });
 
-    function adjustHeader()
-    {
+    function adjustHeader() {
         var windowWidth = $(window).width();
-        if(windowWidth > 992) {
+        if (windowWidth > 992) {
             if ($(document).scrollTop() >= 100) {
-                if($('.header-shrink').length < 1) {
+                if ($('.header-shrink').length < 1) {
                     $('.sticky-header').addClass('header-shrink');
                 }
-                if($('.do-sticky').length < 1) {
-                    $('.logo img').attr('src', 'front/img/logos/black-logo.png');
+                if ($('.do-sticky').length < 1) {
+                    $('.logo img').attr('src', '../../front/img/logos/logo.png');
                 }
-            }
-            else {
+            } else {
                 $('.sticky-header').removeClass('header-shrink');
-                if($('.do-sticky').length < 1) {
-                    $('.logo img').attr('src', 'front/img/logos/logo.png');
+                if ($('.do-sticky').length < 1) {
+                    $('.logo img').attr('src', '../../front/img/logos/logo.png');
                 }
             }
         } else {
-            $('.logo img').attr('src', 'front/img/logos/black-logo.png');
+            $('.logo img').attr('src', '../../front/img/logos/logo.png');
         }
     }
 
-    function doSticky()
-    {
+    function doSticky() {
         if ($(document).scrollTop() > 40) {
             $('.do-sticky').addClass('sticky-header');
             //$('.do-sticky').addClass('header-shrink');
-        }
-        else {
+        } else {
             $('.do-sticky').removeClass('sticky-header');
             //$('.do-sticky').removeClass('header-shrink');
         }
@@ -128,7 +124,7 @@ $(function () {
 
     // DROPDOWN ON HOVER
 
-   $(".dropdown").on('hover', function () {
+    $(".dropdown").on('hover', function () {
             $('.dropdown-menu', this).stop().fadeIn("fast");
         },
         function () {
@@ -137,20 +133,20 @@ $(function () {
 
 
     // Counter Activation
-    function isCounterElementVisible($elementToBeChecked)
-    {
+    function isCounterElementVisible($elementToBeChecked) {
         var TopView = $(window).scrollTop();
         var BotView = TopView + $(window).height();
         var TopElement = $elementToBeChecked.offset().top;
         var BotElement = TopElement + $elementToBeChecked.height();
         return ((BotElement <= BotView) && (TopElement >= TopView));
     }
+
     $(window).on('scroll', function () {
-        $( ".counter" ).each(function() {
+        $(".counter").each(function () {
             var isOnView = isCounterElementVisible($(this));
-            if(isOnView && !$(this).hasClass('Starting')){
+            if (isOnView && !$(this).hasClass('Starting')) {
                 $(this).addClass('Starting');
-                $(this).prop('Counter',0).animate({
+                $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
                 }, {
                     duration: 3000,
@@ -166,25 +162,23 @@ $(function () {
 
     // Full  Page Search Activation
     $(function () {
-        $('a[href="#full-page-search"]').on('click', function(event) {
+        $('a[href="#full-page-search"]').on('click', function (event) {
             event.preventDefault();
             $('#full-page-search').addClass('open');
             $('#full-page-search > form > input[type="search"]').focus();
         });
 
-        $('#full-page-search, #full-page-search button.close').on('click keyup', function(event) {
+        $('#full-page-search, #full-page-search button.close').on('click keyup', function (event) {
             if (event.target === this || event.target.className === 'close' || event.keyCode === 27) {
                 $(this).removeClass('open');
             }
         });
 
-        $('form').on('submit', function(event) {
+        $('form').on('submit', function (event) {
             event.preventDefault();
             return false;
         })
     });
-
-
 
 
     // Page scroller initialization.
@@ -207,11 +201,11 @@ $(function () {
 
 
     // Magnify activation
-    $('.property-magnify-gallery').each(function() {
+    $('.property-magnify-gallery').each(function () {
         $(this).magnificPopup({
             delegate: 'a',
             type: 'image',
-            gallery:{enabled:true}
+            gallery: {enabled: true}
         });
     });
 
@@ -226,8 +220,8 @@ $(function () {
         $(this).append("" +
             "<span class='min-value'></span> " +
             "<span class='max-value'></span>" +
-            "<input class='current-min' type='hidden' name='"+minName+"'>" +
-            "<input class='current-max' type='hidden' name='"+maxName+"'>"
+            "<input class='current-min' type='hidden' name='" + minName + "'>" +
+            "<input class='current-max' type='hidden' name='" + maxName + "'>"
         );
         $(this).slider({
             range: true,
@@ -238,7 +232,7 @@ $(function () {
                 event = event;
                 var currentMin = parseInt(ui.values[0], 10);
                 var currentMax = parseInt(ui.values[1], 10);
-                $(this).children(".min-value").text( currentMin + " " + unit);
+                $(this).children(".min-value").text(currentMin + " " + unit);
                 $(this).children(".max-value").text(currentMax + " " + unit);
                 $(this).children(".current-min").val(currentMin);
                 $(this).children(".current-max").val(currentMax);
@@ -247,7 +241,7 @@ $(function () {
 
         var currentMin = parseInt($(this).slider("values", 0), 10);
         var currentMax = parseInt($(this).slider("values", 1), 10);
-        $(this).children(".min-value").text( currentMin + " " + unit);
+        $(this).children(".min-value").text(currentMin + " " + unit);
         $(this).children(".max-value").text(currentMax + " " + unit);
         $(this).children(".current-min").val(currentMin);
         $(this).children(".current-max").val(currentMax);
@@ -262,7 +256,7 @@ $(function () {
 
 
     // Dropdown activation
-    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+    $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
         if (!$(this).next().hasClass('show')) {
             $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
         }
@@ -270,7 +264,7 @@ $(function () {
         $subMenu.toggleClass('show');
 
 
-        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
             $('.dropdown-submenu .show').removeClass("show");
         });
 
@@ -344,32 +338,32 @@ $(function () {
         })(marker);
     }
 
-    if($('#contactMap').length){
+    if ($('#contactMap').length) {
         LoadMap();
     }
 
 
     // Countdown activation
-    $( function() {
+    $(function () {
         // Add background image
         //$.backstretch('../img/nature.jpg');
         var endDate = "December  27, 2019 15:03:25";
-        $('.countdown.simple').countdown({ date: endDate });
+        $('.countdown.simple').countdown({date: endDate});
         $('.countdown.styled').countdown({
             date: endDate,
-            render: function(data) {
+            render: function (data) {
                 $(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>Days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>Hours</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>Minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>Seconds</span></div>");
             }
         });
         $('.countdown.callback').countdown({
             date: +(new Date) + 10000,
-            render: function(data) {
+            render: function (data) {
                 $(this.el).text(this.leadingZeros(data.sec, 2) + " sec");
             },
-            onEnd: function() {
+            onEnd: function () {
                 $(this.el).addClass('ended');
             }
-        }).on("click", function() {
+        }).on("click", function () {
             $(this).removeClass('ended').data('countdown').update(+(new Date) + 10000).start();
         });
 
@@ -395,6 +389,7 @@ $(function () {
         resizeModalsContent();
         adjustHeader()
     });
+
     function ResCarouselSize() {
         var incno = 0;
         var dataItems = ("data-items");
@@ -415,20 +410,17 @@ $(function () {
             if (bodyWidth >= 1200) {
                 incno = itemsSplit[3];
                 itemWidth = sampwidth / incno;
-            }
-            else if (bodyWidth >= 992) {
+            } else if (bodyWidth >= 992) {
                 incno = itemsSplit[2];
                 itemWidth = sampwidth / incno;
-            }
-            else if (bodyWidth >= 768) {
+            } else if (bodyWidth >= 768) {
                 incno = itemsSplit[1];
                 itemWidth = sampwidth / incno;
-            }
-            else {
+            } else {
                 incno = itemsSplit[0];
                 itemWidth = sampwidth / incno;
             }
-            $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+            $(this).css({'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers});
             $(this).find(itemClass).each(function () {
                 $(this).outerWidth(itemWidth);
             });
@@ -454,8 +446,7 @@ $(function () {
                 translateXval = 0;
                 $(el + ' ' + leftBtn).addClass("over");
             }
-        }
-        else if (e === 1) {
+        } else if (e === 1) {
             var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
             translateXval = parseInt(xds, 10) + parseInt(itemWidth * s, 10);
             $(el + ' ' + leftBtn).removeClass("over");
@@ -476,10 +467,11 @@ $(function () {
 
 
     resizeModalsContent();
+
     function resizeModalsContent() {
         var winWidth = $(window).width();
         var videoWidth = 400;
-        if(winWidth < 992) {
+        if (winWidth < 992) {
             videoWidth = 500;
         }
         var ratio = .6665;
@@ -489,7 +481,7 @@ $(function () {
 
 
     // Typed string activation
-    if($('#typed-strings').length > 0){
+    if ($('#typed-strings').length > 0) {
         var typed = new Typed('#typed', {
             stringsElement: '#typed-strings',
             typeSpeed: 100,
@@ -500,7 +492,7 @@ $(function () {
         });
     }
 
-    if($('#typed-strings2').length > 0){
+    if ($('#typed-strings2').length > 0) {
         var typed = new Typed('#typed2', {
             stringsElement: '#typed-strings2',
             typeSpeed: 100,
@@ -511,7 +503,7 @@ $(function () {
         });
     }
 
-    if($('#typed-strings3').length > 0){
+    if ($('#typed-strings3').length > 0) {
         var typed = new Typed('#typed3', {
             stringsElement: '#typed-strings3',
             typeSpeed: 100,
@@ -524,7 +516,7 @@ $(function () {
 
 
     //Youtube carousel activation
-    if($('.player').length > 0){
+    if ($('.player').length > 0) {
         $(document).on('ready', function () {
             $(".player").mb_YTPlayer();
         });
@@ -532,7 +524,7 @@ $(function () {
 
 
     /* ---- particles.js config ---- */
-    if($('#particles-banner').length > 0){
+    if ($('#particles-banner').length > 0) {
         loadParticlesBackground();
     }
 
@@ -543,7 +535,7 @@ $(function () {
                     "value": 100,
                     "density": {
                         "enable": true,
-                        "value_area":1000
+                        "value_area": 1000
                     }
                 },
                 "color": {
