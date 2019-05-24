@@ -38,9 +38,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*
+ * Citizen Routes
+ */
+
+Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
+Route::get('/services/wanted-people', 'ServicesController@indexPeople')->name('listWantedPeople');
+Route::get('/services/complaint', 'ServicesController@indexComplaint')->name('fileComplaint');
+Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('searchPatrols');
+
 
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employeeAccess'], function () {
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
 });
+
+
