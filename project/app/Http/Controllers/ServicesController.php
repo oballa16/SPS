@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Citizen;
 use App\Complaint;
+use App\Tickets;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -14,7 +15,14 @@ class ServicesController extends Controller
 
         return view('services.tickets');
     }
-
+    public function showTickets()
+    {
+        $tickets = Tickets::where([
+           ['license_number','searchValue'],
+           ['chassis_number','searchValue1']
+       ])->get();
+        return view('services.tickets')->with('tickets', $tickets);
+    }
     public function indexPeople()
     {
         $people = Citizen::where('wanted', 1)->paginate(9);
