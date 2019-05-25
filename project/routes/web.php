@@ -47,7 +47,8 @@ Route::get('/services/wanted-people', 'ServicesController@indexPeople')->name('l
 Route::get('/services/complaint', 'ServicesController@indexComplaint')->name('fileComplaint');
 Route::post('services/complaint', 'ServicesController@store')->name('complain');
 Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('searchPatrols');
-
+Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
+Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets');
 
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employee'], function () {
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::get('complaints/{id}', 'ComplaintsController@show')->name('complaint');
     Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
     Route::patch('complaints/{id}', 'ComplaintsController@update')->name('closeComplaint');
+
 });
 
 
