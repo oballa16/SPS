@@ -13,17 +13,22 @@ class ServicesController extends Controller
 
     public function indexTickets()
     {
-
-        return view('services.tickets');
-    }
-    public function showTickets()
-    {
-        $tickets = Tickets::where([
-           ['license_number','searchValue'],
-           ['chassis_number','searchValue1']
-       ])->get();
+        $tickets = [];
         return view('services.tickets')->with('tickets', $tickets);
     }
+
+    public function showTickets(Request $request)
+    {
+//        $this->validate($request, ['
+//        searchValue' => 'required', '
+//        searchValue1' => 'required']);
+        $tickets = Tickets::where([
+            ['license_number', $request['searchValue']],
+            ['chassis_number', $request['searchValue1']]
+        ])->get();
+        return view('services.tickets')->with('tickets', $tickets);
+    }
+
     public function indexPeople()
     {
         $people = Citizen::where('wanted', 1)->paginate(9);
