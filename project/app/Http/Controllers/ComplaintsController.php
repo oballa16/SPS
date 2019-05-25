@@ -17,4 +17,20 @@ class ComplaintsController extends Controller
 
     }
 
+    public function update($id)
+    {
+        $complaint = Complaint::findOrFail($id);
+        $complaint->status = "Closed";
+        $complaint->save();
+
+        return redirect()->back()->with('status', 'Complaint closed successfully');
+    }
+
+    public function show($id)
+    {
+        $complaint = Complaint::findOrFail($id);
+
+        return view('employee.viewComplaint')->with('complaint', $complaint);
+    }
+
 }
