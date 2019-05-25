@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    SPS >> Citizen Lookup
+    SPS » Citizen Lookup
 @stop
 
 @section('content')
@@ -57,14 +57,6 @@
             </form>
             {{--<a href="{{route('citizenSearch')}}" style=" margin-top: 15px" class="btn btn-primary mybtn">Search by--}}
             {{--post</a>--}}
-            <a href="" data-toggle="modal" data-target="#modalCatForm" class="btn btn-primary mybtn"
-               style="margin-left: 10px; margin-top: 15px">Add Category</a>
-            <a href="" data-toggle="modal" data-target="#modalCatFormShow" class="btn btn-primary mybtn"
-               style="margin-left: 10px; margin-top: 15px">Show Categories</a>
-            <a href="" data-toggle="modal" data-target="#modalTagForm" class="btn btn-primary mybtn"
-               style="margin-left: 10px; margin-top: 15px">Add Tags</a>
-            <a href="" data-toggle="modal" data-target="#modalTagFormShow" class="btn btn-primary mybtn"
-               style="margin-left: 10px; margin-top: 15px">Show Tags</a>
 
         </div>
 
@@ -83,12 +75,12 @@
                         <th scope="col">Gender</th>
                         <th scope="col">Personal Number</th>
                         <th scope="col">Martial Status</th>
+                        <th style="text-align:center" colspan="2">Actions</th>
                     </tr>
                     </thead>
-                    {{$i=1}}
                     @foreach($citizens as $citizen)
                         <tr>
-                            <td>{{$i++}}</td>
+                            <td>{{$citizen->id}}</td>
                             <td>{{$citizen->name}}</td>
                             <td>{{$citizen->surname}}</td>
                             <td>{{$citizen->father_name}}</td>
@@ -96,7 +88,11 @@
                             <td>{{$citizen->birthdate}}</td>
                             <td>{{$citizen->gender}}</td>
                             <td>{{$citizen->personal_no}}</td>
-                            <td>{{$citizen->marital_status}}</td>
+                            <td>{{strtoupper($citizen->maritial_status)}}</td>
+                            <td>
+                                <a href="{{route('openProfile',['id'=>$citizen->id])}}" class="btn btn-danger btn-sm"
+                                   style="font-weight:bold;cursor:pointer;">Open</a>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

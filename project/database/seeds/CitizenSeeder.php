@@ -12,7 +12,7 @@ class CitizenSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Citizen::class, 50)->create();
+        factory(App\Citizen::class, 20)->create();
 
 //        DB::table('citizens')->insert([
 //            'name' => \Illuminate\Support\Str::random(15),
