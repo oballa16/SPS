@@ -10,10 +10,10 @@ class ComplaintsController extends Controller
 {
 
 
-    public function indexComplaint()
+    public function index()
     {
-        $complaints = Complaint::all();
-        return view('viewComplaints')->with('complaints', $complaints);
+        $complaints = Complaint::where('institution', 'police')->get();
+        return view('employee.viewComplaints')->with('complaints', $complaints);
 
     }
 
