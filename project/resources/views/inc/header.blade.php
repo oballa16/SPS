@@ -36,10 +36,16 @@
                                     <i class="fa fa-search"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login" id="navbarDropdownMenuLink7"> Login</a>
-                            </li>
-
+                            @if(\Illuminate\Support\Facades\Auth::guest())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login" id="navbarDropdownMenuLink7"> Login</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"
+                                       id="navbarDropdownMenuLink7"> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </nav>

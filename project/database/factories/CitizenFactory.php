@@ -12,6 +12,10 @@ $factory->define(\App\Citizen::class, function (Faker $faker) {
         'birthdate' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'gender' => 'Male',
         'personal_no' => (string)$faker->regexify('[A-Z]\d{7}[A-Z]'),
-        'maritial_status' => 'single'
+        'maritial_status' => 'single',
+        'wanted' => '0',
+        'address' => $faker->city,
+        'birthplace' => $faker->city,
+        'mobile' => $faker->phoneNumber,
     ];
 });

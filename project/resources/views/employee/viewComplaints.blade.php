@@ -1,6 +1,6 @@
 @extends('inc.layout')
 @section('title')
-    View Complaints
+   SPS » View Complaints
 @stop
 <link href="{{ asset('css/create.css') }}" rel="stylesheet">
 @section('content')
@@ -71,7 +71,7 @@
                                             @csrf
                                             @method('patch')
                                             <button type="submit" class="btn btn-danger btn-sm"
-                                                    style="font-weight:bold">Close
+                                                    style="font-weight:bold;cursor:pointer;">Close
                                             </button>
                                         </form>
                                     </td>

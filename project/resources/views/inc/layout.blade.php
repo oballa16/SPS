@@ -13,6 +13,12 @@
     <link type="text/css" rel="stylesheet" href="{{asset('front')}}/css/jquery.mCustomScrollbar.css">
     <link type="text/css" rel="stylesheet" href="{{asset('front')}}/fonts/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="{{asset('front')}}/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
 
     <!-- Favicon icon -->
     <link rel="shortcut icon" href="{{asset('front')}}/img/favicon.ico" type="image/x-icon">
@@ -66,7 +72,7 @@
 <script src="{{asset('front')}}/js/typed.min.js"></script>
 <script src="{{asset('front')}}/js/jquery.mb.YTPlayer.js"></script>
 <script src="{{asset('front')}}/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>--}}
 <!-- Custom JS Script -->
 <script src="{{asset('front')}}/js/app.js"></script>
 </body>

@@ -52,12 +52,21 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
 
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employee'], function () {
+    /*
+     * Citizen
+     */
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
+    Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
+
+    /*
+     * Complaints
+     */
     Route::get('complaints/{id}', 'ComplaintsController@show')->name('complaint');
     Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
     Route::patch('complaints/{id}', 'ComplaintsController@update')->name('closeComplaint');
-
+    Route::post('/complaints/handle/{id}', 'ComplaintsController@handle')->name('handleComplaint');
+    Route::post('complaints/report/{id}', 'ComplaintsController@report')->name('reportComplaint');
 });
 
 

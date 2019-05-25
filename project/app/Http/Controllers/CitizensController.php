@@ -21,20 +21,19 @@ class CitizensController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function index2(Request $request)
     {
 
 //        dd($request);
-        request()->validate($request->all(), ['
-        searchValue' => 'required',
-            'search' => 'required']);
-        dd($request);
-        $searchKey = $request['search'];
-        $citizens = Citizen::search($request['searchValue'])
-            ->within($searchKey)->get();
-        return redirect()->back()->with('citizens', $citizens);
+//        $this->validate($request, ['
+//        searchValue' => 'required',
+//            'search' => 'required']);
+//        dd($request);
+        $citizens = Citizen::where($request['search'], $request['searchValue'])->get();
+        return view('citizens.citizensIndex')->with('citizens', $citizens);
     }
 
 
@@ -65,9 +64,10 @@ class CitizensController extends Controller
      * @param  \App\Citizen $citizen
      * @return \Illuminate\Http\Response
      */
-    public function show(Citizen $citizen)
+    public function show($id)
     {
-        //
+        $citizen = Citizen::findOrFail($id);
+        return view('citizens.citizenProfile')->with('citizen', $citizen);
     }
 
     /**
