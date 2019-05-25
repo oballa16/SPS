@@ -13,21 +13,20 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link" href="{{route('index')}}" id="navbarDropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('index')}}"> Home
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{route('services')}}" id="navbarDropdown9"> Services
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('team')}}" id="navbarDropdownMenuLink2"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Team
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item ">
                                 <a class="nav-link " href="/news" id="navbarDropdownMenuLink5" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false"> Newsroom
                                 </a>

@@ -1,6 +1,10 @@
-@extends('inc.layout') @section('title', 'View Complaints') @section('external-css')
-    <link href="{{ asset('css/create.css') }}" rel="stylesheet"> @endsection
+@extends('inc.layout')
+@section('title')
+    View Complaints
+@stop
+<link href="{{ asset('css/create.css') }}" rel="stylesheet">
 @section('content')
+
     <div id='mainBanner'>
         <!-- Sub banner start -->
         <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg')">
@@ -26,7 +30,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                    @if ($complaints->isEmpty())
+                    @if (count($complaints) == 0)
                         <p>There are currently no complaints.</p>
                     @else
                         <table class="table table-responsive">
@@ -43,7 +47,7 @@
                             @foreach ($complaints as $complaint)
                                 <tr>
                                     <td>
-                                        <a href="{{ url('services/'. $complaint->id) }}">
+                                        <a href="{{ route('complaint',['id' => $complaint->id]) }}">
                                             {{ $complaint->id }}
                                         </a>
                                     </td>
@@ -55,15 +59,18 @@
                                             <span class="label label-danger text-danger">{{ $complaint->status }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ $complaints->created_at->format('F d, Y H:i') }}</td>
-                                    <td>{{ $complaints->created_at->diffInHours($complaint->updated_at) }} hour (s)</td>
+                                    <td>{{ date('d-m-Y',strtotime($complaints->created_at)}}</td>
                                     <td>
-                                        <a href="{{ url('services/' . $complaint->id) }}" class="btn btn-sm" style="background:#2737A6;color:white">Comment</a>
+                                        <a href="{{ url('services/' . $complaint->id) }}" class="btn btn-sm"
+                                           style="background:#2737A6;color:white">Comment</a>
                                     </td>
                                     <td>
-                                        <form action="{{ url('' . $complaint->id) }}" method="POST">
+                                        <form action="{{ route('')}}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm" style="font-weight:bold">Close</button>
+                                            @method('patch')
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    style="font-weight:bold">Close
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
