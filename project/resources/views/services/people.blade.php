@@ -1,7 +1,7 @@
 @extends('inc.layout')
 <!------ Include the above in your HEAD tag ---------->
 @section('title')
-    Most Wanted People
+    SPS » Most Wanted People
 @stop
 
 

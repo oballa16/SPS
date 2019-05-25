@@ -1,6 +1,6 @@
 @extends('inc.layout')
 @section('title')
-    SPS >> View Tickets
+    SPS » View Tickets
 @stop
 
 @section('content')
@@ -47,7 +47,6 @@
                 <table class="table table-light">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">ID</th>
                         <th scope="col">License Plate Number</th>
                         <th scope="col">Chassis Number</th>
@@ -55,10 +54,8 @@
                         <th scope="col">Date received</th>
                     </tr>
                     </thead>
-                    {{$i=1}}
                     @foreach($tickets as $ticket)
                         <tr>
-                            <td>{{$i++}}</td>
                             <td>{{$ticket->id}}</td>
                             <td>{{$ticket->license_number}}</td>
                             <td>{{$ticket->chassis_number}}</td>

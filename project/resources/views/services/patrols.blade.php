@@ -1,7 +1,7 @@
 @extends('inc.layout')
 
 @section('title')
-    SPS >> Patrols
+    SPS » Patrols
 @stop
 
 @section('content')
