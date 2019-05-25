@@ -12,9 +12,9 @@
             <div class="breadcrumb-area">
                 <h1>Services</h1>
                 <ul class="breadcrumbs">
-                    <li><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="{{route('services')}}">Services</a></li>
-                    <li class="active">Most Wanted People</li>
+                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('services')}}">Services</a></li>
+                    <li class="breadcrumb-item active">Most Wanted People</li>
                 </ul>
             </div>
         </div>
@@ -29,19 +29,26 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-1" style="width: 300px">
                             <div class="blog-photo">
-                                <img src="http://placehold.it/45x45" alt="wanted-people" class="img-fluid"
+                                <img src="{{asset('front')}}/img/profile_picture.jpeg" alt="wanted-people"
+                                     class="img-fluid"
                                      style="width: 300px; height: 200px;">
                             </div>
                             <div class="detail">
-                                <h3>
-                                    {{$person->name}} {{$person->surname}}
-                                </h3>
-                                <h4>
-                                    {{date('d-m-Y',strtotime($person->birthdate))}}
-                                </h4>
-                                <h4>
-                                    {{$person->gender}}
-                                </h4>
+                                <p>
+                                    <strong>Name:</strong> {{$person->name}}
+                                </p>
+                                <p>
+                                    <strong>Father's Name:</strong> {{$person->father_name}}
+                                </p>
+                                <p>
+                                    <strong>Surname: </strong>{{$person->surname}}
+                                </p>
+                                <p>
+                                    <strong>Birth date: </strong>{{date('d-m-Y',strtotime($person->birthdate))}}
+                                </p>
+                                <p>
+                                    <strong>Gender: </strong>{{$person->gender}}
+                                </p>
                             </div>
                         </div>
                     </div>
