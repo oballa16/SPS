@@ -97,6 +97,9 @@ $(function () {
         });
     }
 
+    $("form").on('submit', function (e) {
+        e.stopPropagation();
+    });
     //Variables on page load
     var $myCarousel = $('#carouselExampleIndicators');
     var $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");

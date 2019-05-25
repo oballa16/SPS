@@ -45,14 +45,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
 Route::get('/services/wanted-people', 'ServicesController@indexPeople')->name('listWantedPeople');
 Route::get('/services/complaint', 'ServicesController@indexComplaint')->name('fileComplaint');
+Route::post('services/complaint', 'ServicesController@store')->name('complain');
 Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('searchPatrols');
 
 
 /*Regular Police Employee Routes*/
-Route::group(['middleware' => 'auth', 'employeeAccess'], function () {
+Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
-    Route::get('/complaints', 'ComplaintsController@indexComplaint')->name('viewComplaints');
+    Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
 });
 
 

@@ -61,7 +61,7 @@
 <script src="{{asset('front')}}/js/wow.min.js"></script>
 <script src="{{asset('front')}}/js/backstretch.js"></script>
 <script src="{{asset('front')}}/js/jquery.countdown.js"></script>
-<script src="{{asset('front')}}/js/jquery.scrollUp.js"></script>
+{{--<script src="{{asset('front')}}/js/jquery.scrollUp.js"></script>--}}
 <script src="{{asset('front')}}/js/particles.min.js"></script>
 <script src="{{asset('front')}}/js/typed.min.js"></script>
 <script src="{{asset('front')}}/js/jquery.mb.YTPlayer.js"></script>
