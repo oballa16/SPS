@@ -1,6 +1,10 @@
-@extends('inc.layout') @section('title', 'View Complaints') @section('external-css')
-    <link href="{{ asset('css/create.css') }}" rel="stylesheet"> @endsection
+@extends('inc.layout')
+@section('title')
+    View Complaints
+@stop
+<link href="{{ asset('css/create.css') }}" rel="stylesheet">
 @section('content')
+
     <div id='mainBanner'>
         <!-- Sub banner start -->
         <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg')">
@@ -28,7 +32,7 @@
                 <div class="panel-body">
                     @if ($complaints->isEmpty())
                         <p>There are currently no complaints.</p>
-                    @else
+                        @elseadd
                         <table class="table table-responsive">
                             <thead style="background:#2737A6;color:white; font-size:17px; font-weight:bold;">
                             <tr>
@@ -58,12 +62,15 @@
                                     <td>{{ $complaints->created_at->format('F d, Y H:i') }}</td>
                                     <td>{{ $complaints->created_at->diffInHours($complaint->updated_at) }} hour (s)</td>
                                     <td>
-                                        <a href="{{ url('services/' . $complaint->id) }}" class="btn btn-sm" style="background:#2737A6;color:white">Comment</a>
+                                        <a href="{{ url('services/' . $complaint->id) }}" class="btn btn-sm"
+                                           style="background:#2737A6;color:white">Comment</a>
                                     </td>
                                     <td>
                                         <form action="{{ url('' . $complaint->id) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm" style="font-weight:bold">Close</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    style="font-weight:bold">Close
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

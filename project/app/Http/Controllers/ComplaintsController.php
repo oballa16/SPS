@@ -13,7 +13,7 @@ class ComplaintsController extends Controller
     public function indexComplaint()
     {
         $complaints = Complaint::all();
-        return view('viewComplaints')->with('complaints',$complaints);
+        return view('viewComplaints')->with('complaints', $complaints);
 
     }
 
