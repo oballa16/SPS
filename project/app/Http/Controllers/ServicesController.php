@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Citizen;
 use App\Complaint;
 use Illuminate\Http\Request;
+use Stevebauman\Location\Location;
 
 class ServicesController extends Controller
 {
@@ -55,6 +56,11 @@ class ServicesController extends Controller
 
     public function indexPatrols()
     {
+//        $location = new Location();
+//        $ip = \Illuminate\Support\Facades\Request::ip();
+//        dd($ip);
+//        $position = $location->get($ip);
+//        dd($position);
         return view('services.patrols');
     }
 }
