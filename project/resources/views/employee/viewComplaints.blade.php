@@ -52,6 +52,8 @@
                                         </a>
                                     </td>
                                     <td>{{ $complaint->title }}</td>
+
+                                    <td>{{ date('d-m-Y',strtotime($complaint->created_at))}}</td>
                                     <td>
                                         @if ($complaint->status === 'Open')
                                             <span class="label label-success text-success">{{ $complaint->status }}</span>
@@ -59,13 +61,13 @@
                                             <span class="label label-danger text-danger">{{ $complaint->status }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ date('d-m-Y',strtotime($complaints->created_at)}}</td>
                                     <td>
-                                        <a href="{{ url('services/' . $complaint->id) }}" class="btn btn-sm"
+                                        <a href="{{ route('complaint',['id'=>$complaint->id])}}" class="btn btn-sm"
                                            style="background:#2737A6;color:white">Comment</a>
                                     </td>
                                     <td>
-                                        <form action="{{ route('')}}" method="POST">
+                                        <form action="{{ route('closeComplaint',['id'=>$complaint->id])}}"
+                                              method="POST">
                                             @csrf
                                             @method('patch')
                                             <button type="submit" class="btn btn-danger btn-sm"
@@ -77,8 +79,7 @@
                             @endforeach
                             </tbody>
                         </table>
-
-                        {{ $complaints->render() }} @endif
+                    @endif
                 </div>
             </div>
         </div>

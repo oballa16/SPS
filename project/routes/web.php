@@ -53,7 +53,9 @@ Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('search
 Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
+    Route::get('complaints/{id}', 'ComplaintsController@show')->name('complaint');
     Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
+    Route::patch('complaints/{id}', 'ComplaintsController@update')->name('closeComplaint');
 });
 
 
