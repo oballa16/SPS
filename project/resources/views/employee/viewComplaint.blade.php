@@ -1,10 +1,8 @@
 @extends('inc.layout')
 
 @section('title')
-    SPS >> Complaint
+    SPS » Complaint
 @stop
-
-
 @section('content')
 
     <div id='mainBanner'>
@@ -41,11 +39,15 @@
                    value="{{$complaint->message}}" required autofocus readonly>
         </div>
         <div class="form-group">
-            <label for="email">Status</label>
+            <label for="status">Status</label>
             <input type="text" class="form-control" name='status' id="status"
                    value="{{$complaint->status}}" required autofocus readonly>
         </div>
-
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <input type="text" class="form-control" name='priority' id="priority"
+                   value="{{strtoupper($complaint->priority)}}" required autofocus readonly>
+        </div>
         @if ($complaint->name != null)
             <div class="form-group">
                 <label for="name">Name</label>
@@ -62,60 +64,60 @@
                 <input type="text" class="form-control" name='email' id="email"
                        value="{{$complaint->email}}" required autofocus readonly>
             </div>
-        @endif
-        <form method="post" action="{{route('handleComplaint',['id'=>$message->id])}}">
-            @csrf
-            <div class="form-group">
-                <label for="from">From:</label>
-                <input type="text" class="form-control" name='from' id="from"
-                       placeholder="Enter the email that you want to reply from"
-                       value="{{old('from')}}" autofocus>
+            <form method="post" action="{{route('handleComplaint',['id'=>$complaint->id])}}">
+                @csrf
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <input type="text" class="form-control" name='from' id="from"
+                           placeholder="Enter the email that you want to reply from"
+                           value="{{old('from')}}" autofocus>
 
-                @if ($errors->has('from'))
-                    <span class="alert-danger">
+                    @if ($errors->has('from'))
+                        <span class="alert-danger">
                                         <strong>{{ $errors->first('subject') }}</strong>
                                     </span>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" class="form-control" name='subject' id="subject"
-                       placeholder="Enter email subject"
-                       value="{{old('subject')}}" autofocus>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" name='subject' id="subject"
+                           placeholder="Enter email subject"
+                           value="{{old('subject')}}" autofocus>
 
-                @if ($errors->has('subject'))
-                    <span class="alert-danger">
+                    @if ($errors->has('subject'))
+                        <span class="alert-danger">
                                         <strong>{{ $errors->first('subject') }}</strong>
                                     </span>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="emailBody">Email Body</label>
-                <textarea class="form-control" name='emailBody' id="emailBody"
-                          placeholder="Enter email body"
-                          autofocus>{{old('emailBody')}}</textarea>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="emailBody">Email Body</label>
+                    <textarea class="form-control" name='emailBody' id="emailBody"
+                              placeholder="Enter email body"
+                              autofocus>{{old('emailBody')}}</textarea>
 
-                @if ($errors->has('emailBody'))
-                    <span class="alert-danger">
+                    @if ($errors->has('emailBody'))
+                        <span class="alert-danger">
                                         <strong>{{ $errors->first('emailBody') }}</strong>
                                     </span>
-                @endif
-            </div>
-            <div class="form-group" style="margin: 0 0 0">
-                <label for="status">Archive</label>
-            </div>
-            <div class="form-check form-check-inline" style="margin-bottom: 20px">
-                <label>
-                    <label class="switch">
-                        <input type="checkbox" name="status" value="1" {{$message->status ? 'checked' : ''}}>
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary mybtn" style="margin-bottom: 100px">Submit
-                </button>
-            </div>
-        </form>
+                    @endif
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary mybtn" style="margin-bottom: 100px">Submit
+                    </button>
+                </div>
+            </form>
+        @else
+            <form method="post" action="{{route('reportComplaint',['id'=>$complaint->id])}}">
+                @csrf
+                <div>
+                    <button type="submit" class="btn btn-primary mybtn" style="margin-bottom: 100px;cursor: pointer;">
+                        Report to
+                        supervisor
+                    </button>
+                </div>
+            </form>
+        @endif
     </div>
 @stop

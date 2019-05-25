@@ -56,6 +56,8 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::get('complaints/{id}', 'ComplaintsController@show')->name('complaint');
     Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
     Route::patch('complaints/{id}', 'ComplaintsController@update')->name('closeComplaint');
+    Route::post('/complaints/handle/{id}', 'ComplaintsController@handle')->name('handleComplaint');
+    Route::post('complaints/report/{id}', 'ComplaintsController@report')->name('reportComplaint');
 });
 
 

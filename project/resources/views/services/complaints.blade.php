@@ -1,7 +1,7 @@
 @extends('inc.layout')
 <!------ Include the above in your HEAD tag ---------->
 @section('title')
-    File a Complaint
+    SPS » File a Complaint
 @stop
 <script src="{{asset('front')}}/js/jquery-2.2.0.min.js"></script>
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
