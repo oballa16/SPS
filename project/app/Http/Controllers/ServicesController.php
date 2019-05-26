@@ -17,6 +17,32 @@ class ServicesController extends Controller
         return view('services.tickets')->with('tickets', $tickets);
     }
 
+    public function addTickets(){
+        return view('employee.addNewTicket');
+    }
+
+    public function storeTickets(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'licenseNr' => 'required',
+            'chassisNr' => 'required',
+            'amount' => 'required',
+            'description' => 'required'
+        ]);
+
+        $newTicket = new Tickets();
+        $newTicket->id = $request['title'];
+        $newTicket->license_number = $request['licenseNr'];
+        $newTicket->chassis_number = $request['chassisNr'];
+        $newTicket->amount = $request['amount'];
+        $newTicket->description = $request['description'];
+
+        $newTicket->save();
+
+        return redirect()->back()->with('status', 'Ticket Stored Succesfully');
+
+    }
     public function showTickets(Request $request)
     {
 //        $this->validate($request, ['
