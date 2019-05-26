@@ -15,7 +15,7 @@
             <div class="alert alert-success alert-dismissible fade show">
                 {{ session('status') }}
             </div>
-    @endif
+        @endif
 
 
     <!-- Begining of New Ticket Form -->
