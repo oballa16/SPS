@@ -36,13 +36,14 @@ class CasesController extends Controller
         $task = new Task();
 
         $task->title = $request['title'];
+        $task->date = date(now());
         $task->description = $request['description'];
         $task->employee_id = $request['employee'];
         $task->officer_id = $id;
         $task->case_id = $request['case'];
         $task->save();
 
-        return redirect()->back()->with('info', 'Task added successfully');
+        return redirect()->route('viewCases', ['id' => $id])->with('info', 'Task added successfully');
     }
 
 
@@ -51,9 +52,15 @@ class CasesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showTask($id)
     {
-        //
+        $officer = User::findOrFail($id);
+
+        $cases = $officer->cases()->get();
+        $tasks = $officer->tasks()->get();
+        $employees = User::where('role', 1)->get();
+        return view('officer.task')->with('cases', $cases)->with('tasks', $tasks)->with('officer', $officer)->with('employees', $employees);
+
     }
 
     /**

@@ -53,8 +53,8 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employee'], function () {
 
-    Route::get('/employee','ServicesController@addTickets')->name('addTickets');
-    Route::post('employee','ServicesController@storeTickets')->name('storeNewTicket');
+    Route::get('/employee', 'ServicesController@addTickets')->name('addTickets');
+    Route::post('employee', 'ServicesController@storeTickets')->name('storeNewTicket');
     /*
      * Citizen
      */
@@ -76,7 +76,7 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
 
     Route::get('/cases/{id}', 'CasesController@index')->name('viewCases');
 
-//
+    Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask');
     Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask');
 
 });
