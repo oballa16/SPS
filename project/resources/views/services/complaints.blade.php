@@ -17,8 +17,6 @@
             </div>
     @endif
 
-
-    <!-- Begining of New Ticket Form -->
         <form class="form-horizontal col-md-12" method="POST" action="{{ route('complain') }}">
             @csrf
 

@@ -1,5 +1,4 @@
 @extends('inc.layout')
-@extends('layouts.app')
 @section('title')
 News
 @stop

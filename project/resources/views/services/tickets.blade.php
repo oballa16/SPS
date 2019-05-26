@@ -50,7 +50,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">License Plate Number</th>
                         <th scope="col">Chassis Number</th>
-                        <th scope="col">Amount of Ticket</th>
+                        <th scope="col">Amount of Ticket(ALL)</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Date received</th>
                     </tr>
                     </thead>
@@ -60,6 +61,7 @@
                             <td>{{$ticket->license_number}}</td>
                             <td>{{$ticket->chassis_number}}</td>
                             <td>{{$ticket->amount}}</td>
+                            <td>{{$ticket->description}}</td>
                             <td>{{$ticket->created_at}}</td>
                         </tr>
                     @endforeach
