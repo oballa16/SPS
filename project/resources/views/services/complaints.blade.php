@@ -15,7 +15,7 @@
             <div class="alert alert-success alert-dismissible fade show">
                 {{ session('status') }}
             </div>
-    @endif
+        @endif
 
         <form class="form-horizontal col-md-12" method="POST" action="{{ route('complain') }}">
             @csrf

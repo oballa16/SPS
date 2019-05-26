@@ -72,4 +72,13 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::post('complaints/report/{id}', 'ComplaintsController@report')->name('reportComplaint');
 });
 
+Route::group(['middleware' => 'auth', 'officer'], function () {
+
+    Route::get('/cases/{id}', 'CasesController@index')->name('viewCases');
+
+//
+    Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask');
+
+});
+
 
