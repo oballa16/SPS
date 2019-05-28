@@ -102,4 +102,6 @@ class ServicesController extends Controller
 //        dd($position);
         return view('services.patrols');
     }
+
+
 }
