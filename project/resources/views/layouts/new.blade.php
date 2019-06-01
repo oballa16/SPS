@@ -48,8 +48,8 @@
                 <div class="container-fluid">
 
                     {{--<button type="button" id="sidebarCollapse" class="btn btn-info">--}}
-                        {{--<i class="fas fa-align-left"></i>--}}
-                        {{--<span>Open Sidebar</span>--}}
+                    {{--<i class="fas fa-align-left"></i>--}}
+                    {{--<span>Open Sidebar</span>--}}
                     {{--</button>--}}
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -82,16 +82,11 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
+                                    <div class="dropdown-menu dropdown-menu-right">
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              style="display: none;">
+                                              class="dropdown-item">
                                             @csrf
+                                            <button type="submit" class="dropdown-item">{{ __('Logout') }}</button>
                                         </form>
                                     </div>
                                 </li>

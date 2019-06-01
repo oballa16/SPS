@@ -13,4 +13,10 @@ class Cases extends Model
         return $this->belongsTo(User::class, 'filed_by', 'id');
     }
 
+    public function tasks()
+    {
+
+        return $this->hasMany(Task::class, 'case_id', 'id');
+    }
+
 }

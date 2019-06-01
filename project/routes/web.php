@@ -56,6 +56,11 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::get('/employee/tickets', 'ServicesController@addTickets')->name('addTickets');
     Route::post('employee', 'ServicesController@storeTickets')->name('storeNewTicket');
     Route::get('/employee/tasks', 'TasksController@indexTasks')->name('tasks');
+    Route::patch('/employee/tasks/{id}', 'TasksController@completeTask')->name('completeTask');
+    Route::get('/employee/tasks/{id}/file-report', 'TasksController@showFileUpload')->name('showFileUpload');
+    Route::post('employee/tasks/{id}/file-report', 'TasksController@uploadFileReport')->name('uploadFileReport');
+    Route::get('/files/{fileid}', 'TasksController@showFile')->name('showFile');
+    Route::delete('/employee/tasks/{id}/files/{fileid}', 'TasksController@deleteFile')->name('deleteFile');
     /*
      * Citizen
      */
@@ -76,9 +81,9 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
 Route::group(['middleware' => 'auth', 'officer'], function () {
 
     Route::get('/cases/{id}', 'CasesController@index')->name('viewCases');
-
     Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask');
     Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask');
+    Route::get('/cases/{id}/{caseid}', 'CasesController@show')->name('openCase');
 
 });
 

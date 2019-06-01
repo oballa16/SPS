@@ -7,7 +7,7 @@
 
     <div id='mainBanner'>
         <!-- Sub banner start -->
-        <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg')">
+        <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg');height:300px;">
             <div class="container">
                 <div class="breadcrumb-area">
                     <h1>Complaints</h1>

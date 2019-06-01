@@ -42,8 +42,18 @@ class User extends Authenticatable
         return $this->hasMany(Cases::class, 'filed_by', 'id');
     }
 
-    public function tasks()
+    public function EmployeeTasks()
+    {
+        return $this->hasMany(Task::class, 'employee_id', 'id');
+    }
+
+    public function OfficerTasks()
     {
         return $this->hasMany(Task::class, 'officer_id', 'id');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'officer_id', 'id');
     }
 }
