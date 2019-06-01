@@ -53,8 +53,9 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employee'], function () {
 
-    Route::get('/employee', 'ServicesController@addTickets')->name('addTickets');
+    Route::get('/employee/tickets', 'ServicesController@addTickets')->name('addTickets');
     Route::post('employee', 'ServicesController@storeTickets')->name('storeNewTicket');
+    Route::get('/employee/tasks', 'TasksController@indexTasks')->name('tasks');
     /*
      * Citizen
      */
