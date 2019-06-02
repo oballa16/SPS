@@ -22,7 +22,6 @@ class CasesController extends Controller
         $cases = $officer->cases()->get();
         $tasks = $officer->tasks()->get();
         $employees = User::where('role', 1)->get();
-        $messages =
         return view('officer.cases')->with('cases', $cases)->with('tasks', $tasks)->with('officer', $officer)->with('employees', $employees);
     }
 
