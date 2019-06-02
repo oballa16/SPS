@@ -50,17 +50,19 @@
                                     <div class="card-header">
                                         <h4 class="card-title">{{$case->title}}</h4>
                                         <div class="heading-elements">
-                                            <span class="badge badge-default badge-warning">Mobile</span>
-                                            <span class="badge badge-default badge-success">New</span>
-                                            <span class="badge badge-default badge-info">iOS</span>
+                                            <span class="badge badge-default badge-warning">{{$case->place}}</span>
                                         </div>
                                     </div>
                                     <div class="px-1">
                                         <ul class="list-inline list-inline-pipe text-center p-1 border-bottom-grey border-bottom-lighten-3">
                                             <li>Case Leader: <span class="text-muted">{{$case->filedBy->name}}</span>
                                             </li>
-                                            <li>Start Date: <span class="text-muted">{{$case->start_date}}</span></li>
-                                            <li>Due on: <span class="text-muted">01/Oct/2017</span></li>
+                                            <li>Start Date: <span
+                                                        class="text-muted">{{date('d M Y',strtotime($case->start_date))}}</span>
+                                            </li>
+                                            <li>Due on: <span
+                                                        class="text-muted">{{date('d M Y',strtotime($case->end_date))}}</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,7 +76,7 @@
                                             </div>
                                         </div>
                                         <div class="project-info-text pt-1">
-                                            <h5>Project Users</h5>
+                                            <h5>Cases Employees</h5>
                                         </div>
                                     </div>
                                     <div class="project-info-count col-lg-4 col-md-12">
@@ -85,18 +87,18 @@
                                             </div>
                                         </div>
                                         <div class="project-info-text pt-1">
-                                            <h5>Project Task</h5>
+                                            <h5>Case Tasks</h5>
                                         </div>
                                     </div>
                                     <div class="project-info-count col-lg-4 col-md-12">
                                         <div class="project-info-icon">
-                                            <h2>20</h2>
+                                            <h2>{{count($case->people)}}</h2>
                                             <div class="project-info-sub-icon">
                                                 <span class="fa fa-bug"></span>
                                             </div>
                                         </div>
                                         <div class="project-info-text pt-1">
-                                            <h5>Project Bug</h5>
+                                            <h5>Involved people</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -134,11 +136,18 @@
                                                         </span>
                                                             @endif
                                                         </div>
-                                                        <div class="col-3">
+                                                        <div class="col-2">
                                                             {{$case->tasks[$i]->employee->name}}
                                                         </div>
-                                                        <div class="col-3">
-                                                            File Report
+                                                        <div class="col-4">
+
+                                                            @if(count($case->tasks[$i]->files) > 0 )
+                                                                <i class="far fa-file-pdf"></i>
+                                                                <a target="_blank"
+                                                                   href="{{route('showFile',['fileid' => $case->tasks[$i]->files[0]->id])}}">{{$case->tasks[$i]->files[0]->filename}}</a>
+                                                            @else
+                                                                No Report Yet
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </li>
@@ -168,6 +177,38 @@
                             </div>
                         </div>
                         <!--/ Project Overview -->
+                        <div class="card">
+                            <div class="card-header mb-0">
+                                <h4 class="card-title">People Involved</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content">
+                                    <div class="card-body  py-0 px-0">
+                                        <div class="list-group">
+                                            @foreach($case->people as $person)
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <a style="margin: 20px;" target="_blank"
+                                                           href="{{route('openProfile',['id' => $person->id])}}">{{
+                                                           $person->name}} {{$person->surname}}</a>
+                                                    </div>
+                                                    <div class="col-lg-3" style="margin-top: 20px">
+                                                        {{date('d M Y',strtotime($person->created_at))}}
+                                                    </div>
+                                                    <div class="col-lg-3" style="margin-top: 15px">
+                                                        <a target="_blank" class="btn btn-primary"
+                                                           href="{{route('openProfile',['id' => $person->id])}}">Open
+                                                            Profile</a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <!-- Project Users -->
                         <div class="card">
                             <div class="card-header mb-0">
@@ -191,6 +232,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <a href="{{route('zipFile',['id'=>$case->filedBy->id,'caseid'=>$case->id])}}"
+                                   class="btn btn-primary" style="margin: 20px;background-color: darkblue">Zip and
+                                    download
+                                </a>
                             </div>
                         </div>
                     </div>
