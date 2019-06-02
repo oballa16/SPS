@@ -22,4 +22,9 @@ class Task extends Model
     {
         return $this->belongsTo(User::class, 'employee_id', 'id');
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class, 'task_id', 'id');
+    }
 }

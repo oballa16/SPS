@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Cases;
 use App\Citizen;
+use App\File;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class CasesController extends Controller
@@ -20,9 +23,10 @@ class CasesController extends Controller
         $officer = User::findOrFail($id);
 
         $cases = $officer->cases()->get();
-        $tasks = $officer->tasks()->get();
+        $tasks = $officer->OfficerTasks()->orderBy('created_at', 'desc')->get();
         $employees = User::where('role', 1)->get();
-        return view('officer.cases')->with('cases', $cases)->with('tasks', $tasks)->with('officer', $officer)->with('employees', $employees);
+        $messages = $officer->messages()->orderBy('created_at', 'desc')->get();
+        return view('officer.cases')->with('cases', $cases)->with('tasks', $tasks)->with('officer', $officer)->with('employees', $employees)->with('messages', $messages);
     }
 
     public function addTask(Request $request, $id)
@@ -41,6 +45,7 @@ class CasesController extends Controller
         $task->employee_id = $request['employee'];
         $task->officer_id = $id;
         $task->case_id = $request['case'];
+        $task->status = 'Open';
         $task->save();
 
         return redirect()->route('viewCases', ['id' => $id])->with('info', 'Task added successfully');
@@ -55,9 +60,8 @@ class CasesController extends Controller
     public function showTask($id)
     {
         $officer = User::findOrFail($id);
-
         $cases = $officer->cases()->get();
-        $tasks = $officer->tasks()->get();
+        $tasks = $officer->OfficerTasks()->get();
         $employees = User::where('role', 1)->get();
         return view('officer.task')->with('cases', $cases)->with('tasks', $tasks)->with('officer', $officer)->with('employees', $employees);
 
@@ -80,9 +84,12 @@ class CasesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $caseid)
     {
-        //
+        $case = Cases::findOrFail($caseid);
+        $files = File::where('case_id', $case->id)->get();
+//        $people = DB::query('select ')
+        return view('officer.case')->with('case', $case)->with('files', $files);
     }
 
     /**
