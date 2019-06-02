@@ -71,7 +71,6 @@ State Police System
                     <ul>
                         <li><i class="flaticon-up-arrow"></i>“Së bashku për një komunitet më të sigurt”</li>
                         <li><i class="flaticon-building"></i>Synimi strategjik aftagjatë i Policisë së Shtetit është krijimi i një mjedisi sa më të sigurt për shoqërinë shqiptare, i cili do të sjellë përmirësim në cilësinë e jetës së qytetarëve duke e bërë Shqipërinë një vend të dëshirueshëm për të punuar e jetuar.</li>
-                        <li><i class="flaticon-three"></i>Unique Sales Methodoligies</li>
                     </ul>
                 </div>
             </div>
@@ -114,61 +113,44 @@ State Police System
 <div class="services content-area-2 bg-grea">
     <div class="container">
         <div class="main-title">
-            <h1><span>Our</span> Service</h1>
-            <p>Explore some of the best business from around the world from our partners and friends.</p>
+            <h1><span>Our</span> Services</h1>
+            <p>Explore some of the services found in the online State Police System</p>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="media services-info">
-                    <i class="flaticon-up-arrow"></i>
-                    <div class="media-body">
-                        <h5>Consultative Training</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    <img src = "https://banner2.kisspng.com/20180420/wpw/kisspng-help-desk-issue-tracking-system-service-ticket-vector-movie-tickets-5ad9c579309040.8611790915242213051989.jpg" width="100px" height="80px">
+                    <div class="media-body"><a data-animation="animated fadeInUp delay-10s" href="{{route('checkTickets')}}"
+                                               >
+                        <h5>Check Your Tickets</h5>
+                            <p>See if there are any parking tickets that you are not aware of</p></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="media services-info">
-                    <i class="flaticon-commerce"></i>
-                    <div class="media-body">
-                        <h5>High Performance Selling</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    <img src = "https://image.flaticon.com/icons/png/512/869/869409.png" width="100px" height="100px">
+                    <div class="media-body" ><a data-animation="animated fadeInUp delay-10s" href="{{route('listWantedPeople')}}">
+                        <h5>Stay safe at anytime</h5>
+                        <p>Check all the list of wanted people in our country located in our database</p></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="media services-info">
-                    <i class="flaticon-graphic"></i>
-                    <div class="media-body">
-                        <h5>Sales Coaching Training</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    <img src="http://cdn.onlinewebfonts.com/svg/img_299397.png" width="100px" height="100px">
+                    <div class="media-body"><a data-animation="animated fadeInUp delay-10s" href="{{route('fileComplaint')}}">
+                        <h5>File a Complaint</h5>
+                        <p>For every irregularity or corruption case, please send us your complaint</p></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="media services-info">
-                    <i class="flaticon-social"></i>
-                    <div class="media-body">
-                        <h5 class="mt-0">Advisor Program</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="media services-info">
-                    <i class="flaticon-connection-1"></i>
-                    <div class="media-body">
-                        <h5>Selling With Insights</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="media services-info">
-                    <i class="flaticon-commerce-1"></i>
-                    <div class="media-body">
-                        <h5>Online Marketing</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    <img src="https://www.pngfind.com/pngs/m/114-1147878_location-poi-pin-marker-position-red-map-google.png" width="100px" height="100px">
+                    <div class="media-body"><a data-animation="animated fadeInUp delay-10s" href="{{route('searchPatrols')}}">
+                        <h5 class="mt-0">Search for Patrols nearby</h5>
+                        <p>Check the map for patrols nearby you</p></a>
                     </div>
                 </div>
             </div>
@@ -176,199 +158,6 @@ State Police System
     </div>
 </div>
 <!-- services end -->
-
-<!-- portfolio start -->
-<div class="portfolio-area content-area-8">
-    <div class="container-fluid">
-        <div class="main-title">
-            <h1><span>Our</span> portfolio</h1>
-            <ul class="list-inline-listing filters filteriz-navigation">
-                <li class="active btn filtr-button filtr" data-filter="all">All</li>
-                <li data-filter="1" class="btn btn-inline filtr-button filtr">Web</li>
-                <li data-filter="2" class="btn btn-inline filtr-button filtr">Grapich</li>
-                <li data-filter="3" class="btn btn-inline filtr-button filtr">Word Press</li>
-            </ul>
-        </div>
-        <div class="row filter-portfolio">
-            <div class="cars">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="3">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="3, 2, 1">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="1, 2">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="3, 2">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="2, 1">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="3, 1, 2">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="3, 2, 1">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-pad filtr-item" data-category="1, 2">
-                    <div class="property-box">
-                        <div class="property-thumbnail">
-                            <a href="portfolio-details.html" class="property-img">
-                                <img src="http://placehold.it/337x252" alt="portfolio" class="img-fluid">
-                            </a>
-                            <div class="property-overlay">
-                                <a href="portfolio-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- portfolio end -->
 
 <!-- Agent start -->
 <div class="agent content-area-2">
@@ -465,13 +254,6 @@ State Police System
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="counter-box">
-                    <i class="flaticon-cup"></i>
-                    <h1 class="counter">967</h1>
-                    <h5>Awards</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="counter-box">
                     <i class="flaticon-people-1"></i>
                     <h1 class="counter">254</h1>
                     <h5>Active Member</h5>
@@ -495,139 +277,6 @@ State Police System
     </div>
 </div>
 <!-- Counters end -->
-
-<!-- Testimonial 1 start -->
-<div class="testimonial-1 overview-bgi">
-    <div class="container">
-        <div class="row">
-            <div class="offset-lg-2 col-lg-8">
-                <div class="testimonial-inner">
-                    <header class="testimonia-header">
-                        <h1><span>Our</span> Testimonial</h1>
-                    </header>
-                    <div id="carouselExampleIndicators7" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                        <div class="avatar">
-                                            <img src="http://placehold.it/160x160" alt="avatar-2" class="img-fluid rounded">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <p class="lead">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae.
-                                        </p>
-                                        <div class="author-name">
-                                            Emma Connor
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                        <div class="avatar">
-                                            <img src="http://placehold.it/160x160" alt="avatar" class="img-fluid rounded">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <p class="lead">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae.
-                                        </p>
-                                        <div class="author-name">
-                                            Martin Smith
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                        <div class="avatar">
-                                            <img src="http://placehold.it/160x160" alt="avatar-3" class="img-fluid rounded">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <p class="lead">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae.
-                                        </p>
-                                        <div class="author-name">
-                                            John Antony
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators7" role="button" data-slide="prev">
-                            <span class="slider-mover-left" aria-hidden="true">
-                                <i class="fa fa-angle-left"></i>
-                            </span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators7" role="button" data-slide="next">
-                            <span class="slider-mover-right" aria-hidden="true">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonial 1 end -->
 
 <!-- Blog start -->
 <div class="blog content-area-2">
