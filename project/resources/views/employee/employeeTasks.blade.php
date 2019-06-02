@@ -75,10 +75,6 @@
                                             <i class="zmdi zmdi-upload"></i>
                                         </button>
                                     </a>
-                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-
                                     @if($task->status == 'Open')
                                         <form method="post" action="{{route('completeTask',['id'=>$task->id])}}">
                                             @method('PATCH')
@@ -90,9 +86,6 @@
                                             </button>
                                         </form>
                                     @endif
-                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </button>
                                 </div>
                             </td>
                         </tr>

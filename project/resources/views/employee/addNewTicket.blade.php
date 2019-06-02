@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('inc.inside')
 <!------ Include the above in your HEAD tag ---------->
 @section('title')
     SPS » Enter a new Ticket

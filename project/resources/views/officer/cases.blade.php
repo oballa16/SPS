@@ -40,6 +40,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="title-1 m-b-25">My Cases</h2>
+                        <a style="margin:10px;" class="btn btn-primary" href="{{route('addCase')}}">Add a new case</a>
                         <div class="table-responsive table--no-card m-b-40">
                             <table class="table table-borderless table-striped table-earning">
                                 <thead>
@@ -95,7 +96,7 @@
                                                         <i class="zmdi zmdi-file-add"></i>
                                                     </button>
                                                 </a>
-                                                @if($case->status == 'Open')
+                                                @if($case->status == 'open')
                                                     <form method="post"
                                                           action="{{route('closeCase',['id'=>$case->id])}}">
                                                         @method('PATCH')
