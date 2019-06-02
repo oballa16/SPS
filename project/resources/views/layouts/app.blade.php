@@ -40,18 +40,30 @@
 {{--<div class="page_loader"></div>--}}
 <div id="app" class="wrapper">
     {{-- My Sidebar--}}
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <i href="{{asset('front')}}/img/favicon.ico"></i>
-            <a class="navbar-brand" href="{{ url('/') }}">
-                State Police System
-            </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
+    @if(!\Illuminate\Support\Facades\Auth::guest())
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <i href="{{asset('front')}}/img/favicon.ico"></i>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    State Police System
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a href="">Profile</a>
+                </li>
+                <li class="nav-item"><a
+                            href="{{route('showPassReset',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">Change
+                        Password</a></li>
+
+            </ul>
+        </nav>
+    @endif
 
 
     <div id="content">
@@ -59,11 +71,12 @@
         {{----}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Open Sidebar</span>
-                </button>
+                @if(!\Illuminate\Support\Facades\Auth::guest())
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        {{--<span>Open Sidebar</span>--}}
+                    </button>
+                @endif
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">

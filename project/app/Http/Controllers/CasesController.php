@@ -7,8 +7,12 @@ use App\Citizen;
 use App\File;
 use App\Task;
 use App\User;
+use Chumper\Zipper\Zipper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use PHPUnit\Util\Filesystem;
 
 
 class CasesController extends Controller
@@ -87,42 +91,89 @@ class CasesController extends Controller
     public function show($id, $caseid)
     {
         $case = Cases::findOrFail($caseid);
-        $files = File::where('case_id', $case->id)->get();
+        $files = File::where('case_id', $caseid)->get();
 //        $people = DB::query('select ')
         return view('officer.case')->with('case', $case)->with('files', $files);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function zipFiles($id, $caseid)
     {
-        //
+        $case = Cases::where('id', $caseid)->get()->first();
+        $files = $case->files()->get();
+        $zip_file = 'Case_' . $case->title;
+        $zipper = new Zipper();
+        $headers = ["Content-Type" => "application/zip"];
+        $fileName = $zip_file . ".zip"; // name of zip
+
+        foreach ($files as $file) {
+            $zipper->make(public_path('/documents/' . $zip_file . '.zip'))
+                ->add(storage_path('app\Reports\\') . $file->filename)->close(); //files to be zipped
+        }
+        return response()
+            ->download(public_path('/documents/' . $fileName), $fileName, $headers);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function openArchive()
     {
-        //
+        return view('officer.archiveSearch');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function searchArchive()
     {
-        //
+        $search = Input::get('search');
+        if ($search != null) {
+            $cases = Cases::search($search)->get();
+        } else {
+            abort(404);
+        }
+
+        return view('officer.archiveResults')->with('cases', $cases);
     }
+
+    public function showCaseFileUpload($id)
+    {
+        $case = Cases::findOrFail($id);
+        return view('officer.uploadCaseReport')->with('case', $case);
+    }
+
+    public function deleteCaseFile($id, $fileid)
+    {
+        $file = File::findOrFail($fileid);
+        $filename = $file->filename;
+        $path = Storage::disk('reports')->path($filename);
+        Storage::delete($path);
+        $file->delete();
+        return redirect()->back()->with('info', 'File report deleted successfully');
+    }
+
+    public function uploadCaseFile(Request $request, $id)
+    {
+        $this->validate($request,
+            ['report' => 'required|mimes:pdf']);
+        $case = Cases::findOrFail($id);
+        $path = $request->file('report')->store('Reports');
+//        dd($path);
+        $name = substr($path, 8, strlen($path));
+        $file = new File();
+        $file->filename = $name;
+        $file->case_id = $case->id;
+        $file->employee_id = $case->filedBy->id;
+        $file->task_id = null;
+        $file->save();
+        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'File report uploaded successfully');
+    }
+
+    public function showEditForm($id)
+    {
+        $case = Cases::findOrFail($id);
+        return view('officer.editCase')->with('case', $case);
+    }
+
+    public function showPeopleForm($id)
+    {
+        $case = Cases::findOrFail($id);
+        $citizens = Citizen::all();
+        return view('officer.addPeople')->with('case', $case)->with('citizens', $citizens);
+    }
+
 }

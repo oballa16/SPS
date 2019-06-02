@@ -111,63 +111,57 @@
         </div>
     </div>
 
-    <div class="blog-section content-area-2">
-        <div class="container">
+    <div class="container-fluid">
+        <div class="blog-section content-area-2">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1>Cases involved</h1>
-                    <br/>
-
-                    {{--@if(count($citizen->cases) > 0)--}}
-                    {{--@foreach($data['posts'] as $post)--}}
-                    <div>
-                        <div class="blog-1">
-                            <div class="detail">
-
-                                <div class="post-meta clearfix">
-                                    <ul>
-                                        <li>
-                                            <strong>Date</strong> <strong><a
-                                                        href="#">bla bla bla</a></strong>
-                                        </li>
-                                    </ul>
-                                </div>
-                                {{--<h3>--}}
-                                {{----}}
-                                {{--</h3>--}}
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h3>
-                                            <a href="#">Post Title</a>
-                                        </h3>
-                                        <p>Post Content</p>
-                                        <p><a href="#">Read
-                                                more...</a>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-2 rotate-center">
-                                        <a href="#"
-                                           class="rotate-center"><i
-                                                    class="fas fa-arrow-circle-right fa-3x rotate-center"></i></a>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img style="width:200px;height:180px"
-                                             alt="search">
+                    <h1>Cases Involved</h1>
+                    @if(count($citizen->cases)>0)
+                        @foreach($citizen->cases as $case)
+                            <div>
+                                <div class="blog-1">
+                                    <div class="detail">
+                                        <div class="post-meta clearfix">
+                                            <ul style="list-style: none">
+                                                <li>
+                                                    <strong>{{date('d M Y',strtotime($case->start_date))}}</strong>
+                                                    -
+                                                    <strong>{{date('d M Y',strtotime($case->end_date))}}</strong>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <h3>
+                                                    <a href="{{route('openCase',['id'=>$case->filedBy->id,
+                                                            'caseid' => $case->id])}}">{{$case->title}} </a>
+                                                </h3>
+                                                <p>
+                                                    {{substr($case->description,0,300)}}
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 style="margin-top: 40px">Leading
+                                                    Officer: {{$case->filedBy->name}}</h4>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <a style="margin-top: 30px" href="{{route('openCase',['id'=>$case->filedBy->id,
+                                                            'caseid' => $case->id])}}"><i
+                                                            class="fa fa-arrow-circle-right fa-4x"></i> </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    {{--@endforeach--}}
-                    {{--@else--}}
-                    {{--<tr>--}}
-                    {{--<td colspan="3" class="text-danger">Result not found.</td>--}}
-                    {{--</tr>--}}
-                    {{--@endif--}}
+                        @endforeach
+                    @else
+
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
 

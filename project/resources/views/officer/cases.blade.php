@@ -51,6 +51,7 @@
                                     <th>Title</th>
                                     <th>Place</th>
                                     <th>Officer</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +73,28 @@
                                         <td>{{$case->title}}</td>
                                         <td>{{$case->place}}</td>
                                         <td>{{$case->filedBy->name}} {{$case->filedBy->surname}} </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <a href="{{route('showCaseFileUpload',['id'=>$case->id])}}">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Upload File Report">
+                                                        <i class="zmdi zmdi-upload"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{route('editCase',['id'])}}">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{route('showPeopleForm',['id'=>$case->id])}}">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Add people">
+                                                        <i class="zmdi zmdi-file-add"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
