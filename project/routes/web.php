@@ -101,9 +101,13 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
     Route::get('/cases/{id}', 'CasesController@index')->name('viewCases'); //id = officer id
     Route::get('/cases/{id}/file-upload', 'CasesController@showCaseFileUpload')->name('showCaseFileUpload'); // id = case id
     Route::post('/cases/{id}/file-upload', 'CasesController@uploadCaseFile')->name('uploadCaseFile'); // id == case id
-    Route::delete('/cases/{id}/file-upload/{fileid}', 'CasesController@deleteCaseFile')->name('deleteCaseFile'); // id -> case-id
     Route::get('cases/{id}/people', 'CasesController@showPeopleForm')->name('showPeopleForm'); // id == case->id
-    Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('editCase');
+    Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
+    Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
+    Route::patch('cases/{id}/close', 'CasesController@closeCase')->name('closeCase');
+
+
+    Route::delete('/cases/{id}/file-upload/{fileid}', 'CasesController@deleteCaseFile')->name('deleteCaseFile'); // id -> case-id
 
 
     Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask'); // id == officer-id

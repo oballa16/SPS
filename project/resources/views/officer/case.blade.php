@@ -50,17 +50,19 @@
                                     <div class="card-header">
                                         <h4 class="card-title">{{$case->title}}</h4>
                                         <div class="heading-elements">
-                                            <span class="badge badge-default badge-warning">Mobile</span>
-                                            <span class="badge badge-default badge-success">New</span>
-                                            <span class="badge badge-default badge-info">iOS</span>
+                                            <span class="badge badge-default badge-warning">{{$case->place}}</span>
                                         </div>
                                     </div>
                                     <div class="px-1">
                                         <ul class="list-inline list-inline-pipe text-center p-1 border-bottom-grey border-bottom-lighten-3">
                                             <li>Case Leader: <span class="text-muted">{{$case->filedBy->name}}</span>
                                             </li>
-                                            <li>Start Date: <span class="text-muted">{{$case->start_date}}</span></li>
-                                            <li>Due on: <span class="text-muted">01/Oct/2017</span></li>
+                                            <li>Start Date: <span
+                                                        class="text-muted">{{date('d M Y',strtotime($case->start_date))}}</span>
+                                            </li>
+                                            <li>Due on: <span
+                                                        class="text-muted">{{date('d M Y',strtotime($case->end_date))}}</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -140,8 +142,9 @@
                                                         <div class="col-4">
 
                                                             @if(count($case->tasks[$i]->files) > 0 )
-                                                                <i class="far fa-file-pdf"></i><a target="_blank"
-                                                                                                  href="{{route('showFile',['fileid' => $case->tasks[$i]->files[0]->id])}}">{{$case->tasks[$i]->files[0]->filename}}</a>
+                                                                <i class="far fa-file-pdf"></i>
+                                                                <a target="_blank"
+                                                                   href="{{route('showFile',['fileid' => $case->tasks[$i]->files[0]->id])}}">{{$case->tasks[$i]->files[0]->filename}}</a>
                                                             @else
                                                                 No Report Yet
                                                             @endif
@@ -194,7 +197,8 @@
                                                     </div>
                                                     <div class="col-lg-3" style="margin-top: 15px">
                                                         <a target="_blank" class="btn btn-primary"
-                                                           href="{{route('openProfile',['id' => $person->id])}}">Open Profile</a>
+                                                           href="{{route('openProfile',['id' => $person->id])}}">Open
+                                                            Profile</a>
                                                     </div>
                                                 </div>
                                             @endforeach

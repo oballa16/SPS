@@ -176,4 +176,32 @@ class CasesController extends Controller
         return view('officer.addPeople')->with('case', $case)->with('citizens', $citizens);
     }
 
+    public function editCase(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required|min:25',
+            'start_date' => 'required|date',
+            'end_date' => 'required|after:start_date',
+            'place' => 'required'
+        ]);
+
+        $case = Cases::findOrFail($id);
+
+        $case->title = $request['title'];
+        $case->description = $request['description'];
+        $case->start_date = $request['start_date'];
+        $case->end_date = $request['end_date'];
+        $case->place = $request['place'];
+        $case->save();
+        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case edited successfully');
+    }
+
+    public function closeCase(Request $request, $id)
+    {
+        $case = Cases::findOrFail($id);
+        $case->status = "Closed";
+        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case closed successfully');
+    }
+
 }
