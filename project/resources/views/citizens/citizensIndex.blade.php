@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('inc.inside')
 
 @section('title')
     SPS » Citizen Lookup

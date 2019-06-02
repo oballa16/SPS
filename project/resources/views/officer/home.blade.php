@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard
+@stop
 @section('content')
     @if (session('status'))
         <div class="container">
@@ -45,22 +48,6 @@
                         </div>
                         <a class="card-footer text-white clearfix small z-1"
                            href="{{route('viewCases',['id' => \Illuminate\Support\Facades\Auth::user()->id])}}">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-warning o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-tasks"></i>
-                            </div>
-                            <div class="mr-5">11 New Tasks!</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
