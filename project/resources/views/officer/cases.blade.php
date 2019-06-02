@@ -51,6 +51,7 @@
                                     <th>Title</th>
                                     <th>Place</th>
                                     <th>Officer</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +73,42 @@
                                         <td>{{$case->title}}</td>
                                         <td>{{$case->place}}</td>
                                         <td>{{$case->filedBy->name}} {{$case->filedBy->surname}} </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <a href="{{route('showCaseFileUpload',['id'=>$case->id])}}">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Upload File Report">
+                                                        <i class="zmdi zmdi-upload"></i>
+                                                    </button>
+                                                </a>
+                                                @if($case->status == 'open')
+                                                    <a href="{{route('showEditForm',['id' => $case->id])}}">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top"
+                                                                title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                @endif
+                                                <a href="{{route('showPeopleForm',['id'=>$case->id])}}">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Add people">
+                                                        <i class="zmdi zmdi-file-add"></i>
+                                                    </button>
+                                                </a>
+                                                @if($case->status == 'Open')
+                                                    <form method="post"
+                                                          action="{{route('closeCase',['id'=>$case->id])}}">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        <button class="item" type="submit" data-toggle="tooltip"
+                                                                data-placement="top"
+                                                                title="Close Case">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

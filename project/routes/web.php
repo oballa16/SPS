@@ -50,6 +50,29 @@ Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('search
 Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
 Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets');
 
+
+/*
+ * Routes for all users
+ */
+
+Route::group(['middleware' => 'auth'], function () {
+
+    /*
+     * Change Password
+     */
+    Route::get('/changepass/{id}', 'UserController@showPass')->name('showPassReset');
+    Route::patch('/changepass', 'UserController@changePass')->name('changePass');
+
+    /*
+     * Citizen Lookup
+     */
+    Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
+    Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
+    Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
+
+
+});
+
 /*Regular Police Employee Routes*/
 Route::group(['middleware' => 'auth', 'employee'], function () {
 
@@ -61,12 +84,7 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
     Route::post('employee/tasks/{id}/file-report', 'TasksController@uploadFileReport')->name('uploadFileReport');
     Route::get('/files/{fileid}', 'TasksController@showFile')->name('showFile');
     Route::delete('/employee/tasks/{id}/files/{fileid}', 'TasksController@deleteFile')->name('deleteFile');
-    /*
-     * Citizen
-     */
-    Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
-    Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
-    Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
+
 
     /*
      * Complaints
@@ -80,10 +98,26 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
 
 Route::group(['middleware' => 'auth', 'officer'], function () {
 
-    Route::get('/cases/{id}', 'CasesController@index')->name('viewCases');
-    Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask');
-    Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask');
-    Route::get('/cases/{id}/{caseid}', 'CasesController@show')->name('openCase');
+    Route::get('/cases/{id}', 'CasesController@index')->name('viewCases'); //id = officer id
+    Route::get('/cases/{id}/file-upload', 'CasesController@showCaseFileUpload')->name('showCaseFileUpload'); // id = case id
+    Route::post('/cases/{id}/file-upload', 'CasesController@uploadCaseFile')->name('uploadCaseFile'); // id == case id
+    Route::get('cases/{id}/people', 'CasesController@showPeopleForm')->name('showPeopleForm'); // id == case->id
+    Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
+    Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
+    Route::patch('cases/{id}/close', 'CasesController@closeCase')->name('closeCase');
+
+
+    Route::delete('/cases/{id}/file-upload/{fileid}', 'CasesController@deleteCaseFile')->name('deleteCaseFile'); // id -> case-id
+
+
+    Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask'); // id == officer-id
+    Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask'); // id == officer - id
+    Route::get('/cases/{id}/{caseid}', 'CasesController@show')->name('openCase'); // id= officer-id
+    Route::get('/cases/{id}/{caseid}/download', 'CasesController@zipFiles')->name("zipFile"); // id == officer id
+
+
+    Route::get('/archive', 'CasesController@openArchive')->name('archive');
+    Route::get('/archive/search', 'CasesController@searchArchive')->name('searchArchive');
 
 });
 

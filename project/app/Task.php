@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Task extends Model
 {
+    use Searchable;
     protected $table = 'tasks';
 
     public function officer()
@@ -27,4 +29,5 @@ class Task extends Model
     {
         return $this->hasMany(File::class, 'task_id', 'id');
     }
+
 }
