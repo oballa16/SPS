@@ -45,4 +45,27 @@ class UserController extends Controller
             return redirect()->route('home')->with('info', 'Password updated successfully');
         }
     }
+    public function index()
+    {
+        $userS = [];
+        return view('users.usersIndex')->with('users', $userS);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index2(Request $request)
+    {
+
+        $userS = User::where($request['search'], $request['searchValue'])->get();
+        return view('users.usersIndex')->with('users', $userS);
+    }
+    public function show($id)
+    {
+        $userS = User::findOrFail($id);
+        return view('users.usersProfile')->with('users', $userS);
+    }
 }
