@@ -69,6 +69,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
     Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
+    Route::get('/users','UserController@index')->name('userLookup');
+    Route::post('users','UserController@index2')->name('userSearch');
+    Route::get('/users/{id}', 'UserController@show')->name('openUser');
 
 
 });
