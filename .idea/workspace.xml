@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="684272f4-a876-4a8e-83ed-4877e4a2a6cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/project/resources/views/inc/inside.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/resources/views/officer/addCase.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/CasesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/CasesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/citizens/citizenProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/citizens/citizenProfile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/citizens/citizensIndex.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/citizens/citizensIndex.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/addNewTicket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/addNewTicket.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/employeeTasks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/employeeTasks.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/viewComplaint.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/viewComplaint.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/viewComplaints.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/viewComplaints.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/layouts/new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/layouts/new.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/officer/addPeople.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/officer/addPeople.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/officer/cases.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/officer/cases.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/officer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/officer/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="684272f4-a876-4a8e-83ed-4877e4a2a6cb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +39,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/resources/views/layouts/new.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="306">
               <caret line="62" selection-start-line="62" selection-end-line="62" />
             </state>
           </provider>
@@ -640,11 +622,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559507426593</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add People, Close Case, Edit Case">
+      <created>1559513405946</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1559513405946</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116966000" />
+    <option name="totallyTimeSpent" value="117081000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,7 +646,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.22550336" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.24966443" />
@@ -1151,7 +1139,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/layouts/new.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="306">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
         </state>
       </provider>
