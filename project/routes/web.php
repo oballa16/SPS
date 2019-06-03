@@ -49,8 +49,8 @@ Route::post('services/complaint', 'ServicesController@store')->name('complain');
 Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('searchPatrols');
 Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
 Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets');
-
-
+Route::get('/internal','UserController@internalInv')->name('startInvestigation');
+Route::post('internal','IntAffairsInvestigationsController@store')->name('saveInvestigation');
 /*
  * Routes for all users
  */

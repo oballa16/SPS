@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -38,5 +39,12 @@ class HomeController extends Controller
         if (Auth::user()->role == 4) {
             return view('internal.home');
         }
+    }
+    public function mail($id)
+    {
+        $user = User::where('id', $request->input('id'))->get()->first();
+        Mail::to('krunal@appdividend.com')->send(new SendMailable($name));
+
+        return 'Email was sent';
     }
 }
