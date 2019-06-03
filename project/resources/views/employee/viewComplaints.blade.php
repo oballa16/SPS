@@ -1,4 +1,4 @@
-@extends('inc.layout')
+@extends('inc.inside')
 @section('title')
    SPS » View Complaints
 @stop

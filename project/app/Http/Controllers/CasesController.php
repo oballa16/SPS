@@ -9,6 +9,7 @@ use App\Task;
 use App\User;
 use Chumper\Zipper\Zipper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,13 @@ use PHPUnit\Util\Filesystem;
 
 class CasesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +33,6 @@ class CasesController extends Controller
     public function index($id)
     {
         $officer = User::findOrFail($id);
-
         $cases = $officer->cases()->get();
         $tasks = $officer->OfficerTasks()->orderBy('created_at', 'desc')->get();
         $employees = User::where('role', 1)->get();
@@ -71,6 +78,12 @@ class CasesController extends Controller
 
     }
 
+    public function create()
+    {
+        return view('officer.addCase');
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -79,7 +92,24 @@ class CasesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required|min:25',
+            'start_date' => 'required|date',
+            'end_date' => 'required|after:start_date',
+            'place' => 'required'
+        ]);
+
+        $case = new Cases();
+        $case->title = $request['title'];
+        $case->description = $request['description'];
+        $case->start_date = $request['start_date'];
+        $case->end_date = $request['end_date'];
+        $case->place = $request['place'];
+        $case->filed_by = Auth::user()->id;
+        $case->status = 'open';
+        $case->save();
+        return redirect()->route('viewCases', ['id' => Auth::user()->id])->with('info', 'Case added successfully');
     }
 
     /**
@@ -133,11 +163,13 @@ class CasesController extends Controller
     public function showCaseFileUpload($id)
     {
         $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
         return view('officer.uploadCaseReport')->with('case', $case);
     }
 
     public function deleteCaseFile($id, $fileid)
     {
+        abort_if($id != Auth::user()->id, 403);
         $file = File::findOrFail($fileid);
         $filename = $file->filename;
         $path = Storage::disk('reports')->path($filename);
@@ -151,6 +183,7 @@ class CasesController extends Controller
         $this->validate($request,
             ['report' => 'required|mimes:pdf']);
         $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
         $path = $request->file('report')->store('Reports');
 //        dd($path);
         $name = substr($path, 8, strlen($path));
@@ -166,13 +199,15 @@ class CasesController extends Controller
     public function showEditForm($id)
     {
         $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
         return view('officer.editCase')->with('case', $case);
     }
 
     public function showPeopleForm($id)
     {
         $case = Cases::findOrFail($id);
-        $citizens = Citizen::all();
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        $citizens = [];
         return view('officer.addPeople')->with('case', $case)->with('citizens', $citizens);
     }
 
@@ -187,7 +222,7 @@ class CasesController extends Controller
         ]);
 
         $case = Cases::findOrFail($id);
-
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
         $case->title = $request['title'];
         $case->description = $request['description'];
         $case->start_date = $request['start_date'];
@@ -200,8 +235,27 @@ class CasesController extends Controller
     public function closeCase(Request $request, $id)
     {
         $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
         $case->status = "Closed";
         return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case closed successfully');
     }
 
+    public function addPeople(Request $request, $id)
+    {
+        $citizen = Citizen::findOrFail($request['id']);
+        $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        $case->people()->attach($citizen);
+        $case->save();
+        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen added successfully to case');
+    }
+
+
+    public function citizenSearch(Request $request, $id)
+    {
+        $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        $citizens = Citizen::where($request['search'], $request['searchValue'])->get();
+        return view('officer.addPeople')->with('citizens', $citizens)->with('case', $case);
+    }
 }

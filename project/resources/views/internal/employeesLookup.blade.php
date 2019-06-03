@@ -1,7 +1,7 @@
 @extends('inc.inside')
 
 @section('title')
-    SPS » Citizen Lookup
+    SPS » Police Employees Lookup
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg');height: 300px;">
             <div class="container">
                 <div class="breadcrumb-area">
-                    <h1 style="color: white;">Citizen Database Lookup</h1>
+                    <h1 style="color: white;">Police Employees Database Lookup</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Citizen Lookup</li>
+                <li class="breadcrumb-item active">Police Employees Lookup</li>
             </ol>
         </div>
 
