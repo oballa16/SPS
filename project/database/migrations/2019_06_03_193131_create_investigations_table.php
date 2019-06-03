@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCasesCitizensTable extends Migration
+class CreateInvestigationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCasesCitizensTable extends Migration
      */
     public function up()
     {
-        Schema::create('cases_citizens', function (Blueprint $table) {
+        Schema::create('investigations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('case_id');
-            $table->bigInteger('citizen_id');
-
-            $table->foreign('case_id')->references('id')->on('cases');
-            $table->foreign('citizen_id')->references('id')->on('citizens');
+            $table->string('title');
+            $table->string('emp_name');
+            $table->string('emp_id');
+            $table->string('description');
+            $table->string('category');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCasesCitizensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cases_citizens');
+        Schema::dropIfExists('investigations');
     }
 }

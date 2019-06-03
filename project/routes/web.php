@@ -50,7 +50,6 @@ Route::get('/services/patrols', 'ServicesController@indexPatrols')->name('search
 Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkTickets');
 Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets');
 
-
 /*
  * Routes for all users
  */
@@ -69,9 +68,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/citizens', 'CitizensController@index')->name('citizenLookup');
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
     Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
-    Route::get('/users','UserController@index')->name('userLookup');
-    Route::post('users','UserController@index2')->name('userSearch');
-    Route::get('/users/{id}', 'UserController@show')->name('openUser');
 
 
 });
@@ -128,4 +124,15 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
 
 });
 
+/*
+ * Internal Affairs Route
+ */
 
+Route::group(['middleware' => 'auth', 'internal'], function () {
+
+    Route::get('/internal', 'UserController@internalInv')->name('startInvestigation');
+    Route::post('internal', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
+    Route::get('/users', 'UserController@index')->name('userLookup');
+    Route::post('/users', 'UserController@index2')->name('userSearch');
+    Route::get('/users/{id}', 'UserController@show')->name('openUser');
+});

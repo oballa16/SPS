@@ -68,4 +68,8 @@ class UserController extends Controller
         $userS = User::findOrFail($id);
         return view('users.usersProfile')->with('users', $userS);
     }
+    public function internalInv(){
+        $internal = [];
+        return view('internal.startInvestigation')->with('internal',$internal);
+    }
 }
