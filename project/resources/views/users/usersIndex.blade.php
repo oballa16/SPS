@@ -66,6 +66,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
                         <th scope="col">Email</th>
                         <th scope="col">Position</th>
                         <th style="text-align:center" colspan="2">Actions</th>
@@ -75,6 +76,7 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->surname}}</td>
                             <td>{{$user->email}}</td>
                             <td>@if($user->role == '1')
                                     Regular Employee

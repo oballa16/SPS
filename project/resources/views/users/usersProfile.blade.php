@@ -37,6 +37,14 @@
                             </div>
                         </div>
                         <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>Employee surname</h4></label>
+                                <input type="text" class="form-control" name="surname" id="surname"
+                                       value="{{$users->surname}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="last_name"><h4>Email</h4></label>
                                 <input type="text" class="form-control" name="surname" id="surname"
@@ -146,7 +154,7 @@
                        href="{{route('showEmailForm',['id' => $users->id])}}"
                        class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
             <br><br>
-            <center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation')}}"
+            <center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation',['id' => $users->id])}}"
                        class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
 
         </div>
