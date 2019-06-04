@@ -18,6 +18,11 @@
                 </div>
                 <hr>
                 <br>
+                @if($users->status == '1')
+                    <h2 style="color:#ffae42;font-weight: bold;">Status: On Watch</h2>
+                @elseif ($users->status=='2')
+                    <h2 style="color:red;font-weight: bold">Status: Under Investigation</h2>
+                @endif
             </div><!--/col-3-->
             <div class="col-sm-9">
                 <div class="tab-content">
@@ -50,15 +55,16 @@
                             <div class="col-xs-6">
                                 <label for="status"><h4>Work Position</h4></label>
                                 <input type="text" class="form-control" name="status" id="status"
-                                       value="@if($users->role == '1')
+                                       value="
+                                             @if($users->role == '1')
                                                Regular Employee
-                                              @elseif($users->role == '2')
+                                             @elseif($users->role == '2')
                                                Police Officer
-                                              @elseif($users->role == '3')
+                                             @elseif($users->role == '3')
                                                Chief Police Officer
-                                                @else
+                                             @else
                                                Internal Affairs Employee
-                                                @endif" readonly>
+                                              @endif" readonly>
                             </div>
                         </div>
 
@@ -123,11 +129,18 @@
 
     <div class="container-fluid" style="margin: 20px">
         <div class="row justify-content-center">
-                    <b><center><div class="card-header">ACTIONS</div></center></b>
-                        <br><br><center><a data-animation="animated fadeInUp delay-10s" href="{{route('listWantedPeople')}}"
-                                   class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
-                        <br><br><center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation')}}"
-                                   class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
+            <b>
+                <center>
+                    <div class="card-header">ACTIONS</div>
+                </center>
+            </b>
+            <br><br>
+            <center><a data-animation="animated fadeInUp delay-10s"
+                       href="{{route('sendEmailForm',['id' => $users->id])}}"
+                       class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
+            <br><br>
+            <center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation')}}"
+                       class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
 
         </div>
     </div>

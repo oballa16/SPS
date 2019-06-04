@@ -1,7 +1,7 @@
 @extends('inc.layout')
 
 @section('title')
-    SPS » My Cases
+    SPS » Archive
 @stop
 
 

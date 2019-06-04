@@ -1,6 +1,6 @@
 @extends('layouts.new')
 @section('title')
-    SPS » Employee Tasks
+    SPS » Upload Case Reports
 @endsection
 @section('content')
     <div id='mainBanner'>

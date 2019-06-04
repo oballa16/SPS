@@ -97,13 +97,24 @@
                                 <td>{{$citizen->personal_no}}</td>
                                 <td>{{strtoupper($citizen->maritial_status)}}</td>
                                 <td>
-                                    <form method="post" action="{{route('addPeople',['id' => $case->id])}}">
-                                        @csrf
-                                        <input type="text" name="id" value="{{$citizen->id}}" hidden>
-                                        <button
-                                                type="submit" class="btn btn-primary">Add to this case
-                                        </button>
-                                    </form>
+                                    @if(!$citizen->cases()->get()->contains($case->id))
+                                        <form method="post" action="{{route('addPeople',['id' => $case->id])}}">
+                                            @csrf
+                                            <input type="text" name="id" value="{{$citizen->id}}" hidden>
+                                            <button
+                                                    type="submit" class="btn btn-primary">Add to this case
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form method="post" action="{{route('deletePeople',['id' => $case->id])}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="text" name="id" value="{{$citizen->id}}" hidden>
+                                            <button
+                                                    type="submit" class="btn btn-danger">Remove from this case
+                                            </button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

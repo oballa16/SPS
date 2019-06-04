@@ -258,4 +258,14 @@ class CasesController extends Controller
         $citizens = Citizen::where($request['search'], $request['searchValue'])->get();
         return view('officer.addPeople')->with('citizens', $citizens)->with('case', $case);
     }
+
+    public function deletePeople(Request $request, $id)
+    {
+        $citizen = Citizen::findOrFail($request['id']);
+        $case = Cases::findOrFail($id);
+        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        $case->people()->detach($citizen);
+        $case->save();
+        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen removed successfully from case');
+    }
 }

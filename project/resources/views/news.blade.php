@@ -1,6 +1,6 @@
 @extends('inc.layout')
 @section('title')
-News
+SPS » News
 @stop
 @section('content')
     <div id='mainBanner'>
