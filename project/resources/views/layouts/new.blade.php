@@ -35,7 +35,27 @@
 
     <!-- Main CSS-->
     <link href="{{asset('theme')}}/css/theme.css" rel="stylesheet" media="all">
+    <style>
+        .progress {
+            width: 100%;
+            height: 20px;
+        }
 
+        .progress-wrap {
+            background: green;
+            margin: 5px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: #ddd;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+    </style>
 </head>
 
 <body>
