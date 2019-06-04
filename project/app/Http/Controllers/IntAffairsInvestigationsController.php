@@ -41,8 +41,8 @@ class IntAffairsInvestigationsController extends Controller
             $files = $request['files'];
 
             foreach ($files as $file) {
-                $path = $file->store('Internal');
                 $name = date('dmY', strtotime(now())) . '-' . $file->getClientOriginalName();
+                $path = $file->store('Internal', $name);
                 $file = new InvestigationFile();
                 $file->filename = $name;
                 $file->agent_id = Auth::user()->id;
