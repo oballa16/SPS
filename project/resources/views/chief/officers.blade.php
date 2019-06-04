@@ -10,7 +10,7 @@
              style="height:300px;background-image: url('{{asset('front')}}/img/police.jpg')">
             <div class="container">
                 <div class="breadcrumb-area">
-                    <h1>Employees</h1>
+                    <h1>Officers</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Employees</li>
+                <li class="breadcrumb-item active">Officers</li>
             </ol>
         </div>
     </div>
@@ -37,42 +37,42 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="title-1 m-b-25">My Cases</h2>
+                        <h2 class="title-1 m-b-25">My officers</h2>
                         <div class="table-responsive table--no-card m-b-40">
                             <table class="table table-borderless table-striped table-earning">
                                 <thead>
                                 <tr>
-                                    <th>Employee ID</th>
+                                    <th>Officer ID</th>
                                     <th>Name</th>
                                     <th>Surname</th>
                                     <th>Position</th>
-                                    <th>No. of total tasks</th>
-                                    <th>Tasks completed</th>
+                                    <th>No. of total cases</th>
+                                    <th>Cases completed</th>
                                     <th>Performance</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($employees as $employee)
+                                @foreach($officers as $officer)
                                     <tr style="text-align: center;">
-                                        <td>{{$employee->id}}</td>
-                                        <td>{{$employee->name}}</td>
-                                        <td>{{$employee->surname}}</td>
+                                        <td>{{$officer->id}}</td>
+                                        <td>{{$officer->name}}</td>
+                                        <td>{{$officer->surname}}</td>
                                         <td>
-                                            Police Employee
+                                            Police Officer
                                         </td>
                                         <td>
-                                            {{count($employee->EmployeeTasks)}}
+                                            {{count($officer->cases)}}
                                         </td>
                                         <td>
                                             @php(
-                                           $completed2 = $employee->EmployeeTasks->filter(function ($item) { return $item->status == 'Completed';})->count()
+                                           $completed2 = $officer->cases->filter(function ($item) { return $item->status == 'Closed';})->count()
                                             )
                                             {{ $completed2 }}
                                         </td>
                                         <td>
                                             <div class="progress-wrap progress"
-                                                 data-progress-percent="{{$completed2/(count($employee->EmployeeTasks)) * 100}}">
+                                                 data-progress-percent="{{$completed2/(count($officer->cases)) * 100}}">
                                                 <div class="progress-bar progress"></div>
                                             </div>
                                         </td>
@@ -97,7 +97,7 @@
                     <div class="col-sm-6">
                         <div class="au-card m-b-30">
                             <div class="au-card-inner">
-                                <h3 class="title-2 m-b-40">Employee of the month</h3>
+                                <h3 class="title-2 m-b-40">Officer of the month</h3>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <img src="{{asset('front')}}/img/avatar.png" alt="Profile Picture">
