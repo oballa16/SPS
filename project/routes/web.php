@@ -56,8 +56,8 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
 
 Route::group(['middleware' => 'auth', 'internal'], function () {
 
-    Route::get('/internal', 'UserController@internalInv')->name('startInvestigation');
-    Route::post('internal', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
+    Route::get('/users/{id}/investigation', 'UserController@internalInv')->name('startInvestigation');
+    Route::post('/users/investigation', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
     Route::get('/users', 'UserController@index')->name('userLookup');
     Route::post('/users', 'UserController@index2')->name('userSearch');
     Route::get('/users/{id}', 'UserController@show')->name('openUser');

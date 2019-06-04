@@ -76,10 +76,10 @@ class UserController extends Controller
         return view('users.usersProfile')->with('users', $userS);
     }
 
-    public function internalInv()
+    public function internalInv($id)
     {
-        $internal = [];
-        return view('internal.startInvestigation')->with('internal', $internal);
+        $user = User::findOrFail($id);
+        return view('internal.startInvestigation')->with('user', $user);
     }
 
     public function showEmployeeFormWatch()
