@@ -1,7 +1,7 @@
 @extends('inc.inside')
 
 @section('title')
-    SPS » Police Employees Lookup
+    SPS » Employee Search
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
              style="background-image: url('{{asset('front')}}/img/police.jpg');height: 300px;">
             <div class="container">
                 <div class="breadcrumb-area">
-                    <h1 style="color: white;">Police Employees Database Lookup</h1>
+                    <h1 style="color: white;">Citizen Database Lookup</h1>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item">
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Police Employees Lookup</li>
+                <li class="breadcrumb-item active">Citizen Lookup</li>
             </ol>
         </div>
 
@@ -36,13 +36,13 @@
 
         <div class="container" style="margin-top: 40px;margin-bottom: 40px">
 
-            <form method="post" action="{{route('userSearch')}}">
+            <form method="post" action="{{route('citizenSearch')}}">
                 @csrf
                 <label for="search">Search by: </label>
                 <select id="search" name="search" required>
                     <option value="name">Name</option>
-                    <option value="email">Email</option>
-                    <option value="id">Personal Number</option>
+                    <option value="surname">Surname</option>
+                    <option value="personal_no">Personal Number</option>
                 </select>
                 <label for="searchValue">
                     Enter value to search:
@@ -56,41 +56,43 @@
                 @endif
                 <button type="submit"> Search</button>
             </form>
+            {{--<a href="{{route('citizenSearch')}}" style=" margin-top: 15px" class="btn btn-primary mybtn">Search by--}}
+            {{--post</a>--}}
+
         </div>
 
 
-        @if (count($users)!=0)
+        @if (count($citizens)!=0)
             <div class="container">
                 <table class="table table-light">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Position</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Father's Name</th>
+                        <th scope="col">Mother's Name</th>
+                        <th scope="col">Birth Date</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Personal Number</th>
+                        <th scope="col">Martial Status</th>
                         <th style="text-align:center" colspan="2">Actions</th>
                     </tr>
                     </thead>
-                    @foreach($users as $user)
+                    @foreach($citizens as $citizen)
                         <tr>
-                            <td>{{$user->id}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>@if($user->role == '1')
-                                    Regular Employee
-                                @elseif($user->role == '2')
-                                    Police Officer
-                                @elseif($user->role == '3')
-                                    Chief Police Officer
-                                @else
-                                    Internal Affairs Employee
-                                @endif
-                            </td>
+                            <td>{{$citizen->id}}</td>
+                            <td>{{$citizen->name}}</td>
+                            <td>{{$citizen->surname}}</td>
+                            <td>{{$citizen->father_name}}</td>
+                            <td>{{$citizen->mother_name}}</td>
+                            <td>{{$citizen->birthdate}}</td>
+                            <td>{{$citizen->gender}}</td>
+                            <td>{{$citizen->personal_no}}</td>
+                            <td>{{strtoupper($citizen->maritial_status)}}</td>
                             <td>
-                                <a href="{{route('openUser',['id'=>$user->id])}}" class="btn btn-danger btn-sm"
+                                <a href="{{route('openProfile',['id'=>$citizen->id])}}" class="btn btn-danger btn-sm"
                                    style="font-weight:bold;cursor:pointer;">Open</a>
-                                <a href="{{route('addToWatch',['id'=>$user->id])}}" class="btn btn-danger btn-sm"
-                                   style="font-weight: bold;cursor: pointer">Put him on watch</a>
                             </td>
                         </tr>
                     @endforeach

@@ -33,7 +33,7 @@
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">INTERNAL AFFAIRS</li>
+                <li class="breadcrumb-item active">Internal Affairs</li>
             </ol>
 
             <!-- Icon Cards-->

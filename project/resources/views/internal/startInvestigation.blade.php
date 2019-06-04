@@ -1,5 +1,5 @@
 @section('title')
-    SPS » Internat Affairs Investigation
+    SPS » Internal Affairs Investigation
     @endsection
 @extends('layouts.app')
 <!-- Fontfaces CSS-->
