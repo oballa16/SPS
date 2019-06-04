@@ -77,6 +77,13 @@
         </div>
     </div>
     <div class="container-fluid">
+        @if (session('info'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
+    <div class="container-fluid">
         <div class="blog-section content-area-2">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -136,7 +143,7 @@
             </b>
             <br><br>
             <center><a data-animation="animated fadeInUp delay-10s"
-                       href="{{route('sendEmailForm',['id' => $users->id])}}"
+                       href="{{route('showEmailForm',['id' => $users->id])}}"
                        class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
             <br><br>
             <center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation')}}"

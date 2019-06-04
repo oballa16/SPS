@@ -23,7 +23,7 @@
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{route('viewComplaints')}}">Complaints</a></li>
-                <li class="breadcrumb-item active">{{$complaint->title}}</li>
+                <li class="breadcrumb-item active">Email</li>
             </ol>
         </div>
     </div>

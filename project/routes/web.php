@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
     Route::post('/users', 'UserController@index2')->name('userSearch');
     Route::get('/users/{id}', 'UserController@show')->name('openUser');
     Route::get('/users/{id}/sendEmail', 'UserController@showEmailForm')->name('showEmailForm');
+    Route::post('/users/{id}/sendEmail', 'UserController@sendEmail')->name('sendEmail');
     Route::get('/complaints/employee', 'UserController@showEmployeeFormWatch')->name('employeeWatchForm');
     Route::post('/complaints/employee', 'UserController@showEmployees')->name('showEmployees');
     Route::get('/users/watch/{id}', 'UserController@addToWatch')->name('addToWatch');
