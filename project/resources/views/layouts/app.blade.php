@@ -65,14 +65,20 @@
                             <li class="nav-item dropdown-item">
                                 <a href="{{route('showPassReset',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">Change
                                     Password</a></li>
-
+                            <li class="nav-item dropdown-item">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      class="nav-item dropdown-item">
+                                    @csrf
+                                    <button type="submit" class=" nav-item dropdown-item ">{{ __('Logout') }}</button>
+                                </form>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-menu dropdown-menu">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           class="dropdown-item">
                                         @csrf

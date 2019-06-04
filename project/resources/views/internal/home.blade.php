@@ -44,10 +44,9 @@
                             <div class="card-body-icon">
                                 <i class="fas fa-folder-open"></i>
                             </div>
-                            <div class="mr-5">Cases</div>
+                            <div class="mr-5">Investigations</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1"
-                           >
+                        <a class="card-footer text-white clearfix small z-1">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
