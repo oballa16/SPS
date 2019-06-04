@@ -59,7 +59,7 @@ class TasksController extends Controller
         $task = Task::findOrFail($id);
         $path = $request->file('report')->store('Reports');
 //        dd($path);
-        $name = substr($path, 8, strlen($path));
+        $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
         $file = new File();
         $file->filename = $name;
         $file->case_id = $task->caseRelated->id;

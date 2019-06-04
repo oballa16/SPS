@@ -9,6 +9,25 @@
 <hr>
 
 @section('content')
+    <div id='mainBanner' style="margin-top: -30px">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb" style="margin-top: 20px">
+                <li class="breadcrumb-item">
+                    <a href="{{route('home')}}">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @if (session('info'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
+
     <div class="container bootstrap snippet">
         <div class="row">
             <div class="col-sm-3"><!--left col-->
@@ -154,7 +173,8 @@
                        href="{{route('showEmailForm',['id' => $users->id])}}"
                        class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
             <br><br>
-            <center><a data-animation="animated fadeInUp delay-10s" href="{{route('startInvestigation',['id' => $users->id])}}"
+            <center><a data-animation="animated fadeInUp delay-10s"
+                       href="{{route('startInvestigation',['id' => $users->id])}}"
                        class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
 
         </div>
