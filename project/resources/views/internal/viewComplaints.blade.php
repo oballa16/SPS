@@ -21,10 +21,11 @@
                 <li class="breadcrumb-item">
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Complaints by citizens</li>
+                <li class="breadcrumb-item active">Complaints towards Internal Affairs</li>
             </ol>
         </div>
     </div>
+
     <div class="container card" style="margin-bottom: 40px">
         <div class="col-md-12 col-md-offset-1 card-body">
             <div class="panel panel-default">

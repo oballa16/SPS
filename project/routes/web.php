@@ -51,6 +51,26 @@ Route::get('/services/tickets', 'ServicesController@indexTickets')->name('checkT
 Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets');
 
 /*
+ * Internal Affairs Route
+ */
+
+Route::group(['middleware' => 'auth', 'internal'], function () {
+
+    Route::get('/internal', 'UserController@internalInv')->name('startInvestigation');
+    Route::post('internal', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
+    Route::get('/users', 'UserController@index')->name('userLookup');
+    Route::post('/users', 'UserController@index2')->name('userSearch');
+    Route::get('/users/{id}', 'UserController@show')->name('openUser');
+    Route::get('/users/{id}/sendEmail', 'UserController@showEmailForm')->name('showEmailForm');
+    Route::get('/complaints/employee', 'UserController@showEmployeeFormWatch')->name('employeeWatchForm');
+    Route::post('/complaints/employee', 'UserController@showEmployees')->name('showEmployees');
+    Route::get('/users/watch/{id}', 'UserController@addToWatch')->name('addToWatch');
+
+
+});
+
+
+/*
  * Routes for all users
  */
 
@@ -104,6 +124,7 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
     Route::post('/cases/{id}/file-upload', 'CasesController@uploadCaseFile')->name('uploadCaseFile'); // id == case id
     Route::get('cases/{id}/people', 'CasesController@showPeopleForm')->name('showPeopleForm'); // id == case->id
     Route::post('cases/{id}/people', 'CasesController@addPeople')->name('addPeople');
+    Route::delete('cases/{id}/people', 'CasesController@deletePeople')->name('deletePeople');
     Route::post('cases/{id}/citizenSearch', 'CasesController@citizenSearch')->name('citizenSearchCase');
     Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
     Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
@@ -124,15 +145,4 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
 
 });
 
-/*
- * Internal Affairs Route
- */
 
-Route::group(['middleware' => 'auth', 'internal'], function () {
-
-    Route::get('/internal', 'UserController@internalInv')->name('startInvestigation');
-    Route::post('internal', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
-    Route::get('/users', 'UserController@index')->name('userLookup');
-    Route::post('/users', 'UserController@index2')->name('userSearch');
-    Route::get('/users/{id}', 'UserController@show')->name('openUser');
-});
