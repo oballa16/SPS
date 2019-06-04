@@ -30,7 +30,29 @@
             <strong>Record Investigation</strong> File
         </div>
         <div class="card-body card-block">
-            <form action="{{ route('saveInvestigation') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            <form action="{{ route('saveInvestigation')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                @csrf
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="empID" class=" form-control-label">EMPLOYEE ID</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="empID" name="empID" value="{{$user->id}}" class="form-control" readonly>
+                        <small class="form-text text-muted">Employee's ID</small>
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="empName" class=" form-control-label">Employee's Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="empName" name="empName" value="{{$user->name}}" class="form-control" readonly>
+                        <small class="form-text text-muted">Enter the title for this investigation</small>
+                    </div>
+                </div>
+
                 <div class="row form-group">
                     <div class="col col-md-3">
                         <label for="title" class=" form-control-label">Investigation Title</label>

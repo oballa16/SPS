@@ -11,14 +11,23 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Investigations;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
-class IntAffairsInvestigationsController
+class IntAffairsInvestigationsController extends Controller
 {
+
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:5|max:25',
+            'title' => 'required',
             'description' => 'required',
             'SelectLm' => 'required'
         ]);
@@ -27,6 +36,7 @@ class IntAffairsInvestigationsController
         $investigation->title = $request['title'];
         $investigation->description = $request['description'];
         $investigation->category = $request['SelectLm'];
+        $investigation->emp_id = $request['empID'];
 
 
         $investigation->save();
