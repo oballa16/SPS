@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Investigations;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -132,4 +133,5 @@ class UserController extends Controller
         return \redirect()->route('openUser', ['id' => $user->id])->with('info', 'Email sent successfully');
     }
 
+  
 }
