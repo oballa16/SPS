@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Investigations;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -133,5 +132,17 @@ class UserController extends Controller
         return \redirect()->route('openUser', ['id' => $user->id])->with('info', 'Email sent successfully');
     }
 
-  
+    public function sendMessage(Request $request, $id)
+    {
+
+        $officer = User::findOrFail($id);
+        $message = new \App\Message();
+        $message->subject = 'Message from ' . Auth::user()->name;
+        $message->body = $request['message'];
+        $message->officer_id = $officer->id;
+        $message->save();
+
+        return redirect()->route("viewOfficersChief")->with('info', 'Message sent successfully');
+    }
+
 }

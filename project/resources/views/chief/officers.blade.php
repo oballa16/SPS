@@ -66,15 +66,23 @@
                                         </td>
                                         <td>
                                             @php(
+
                                            $completed2 = $officer->cases->filter(function ($item) { return $item->status == 'Closed';})->count()
                                             )
                                             {{ $completed2 }}
                                         </td>
                                         <td>
-                                            <div class="progress-wrap progress"
-                                                 data-progress-percent="{{$completed2/(count($officer->cases)) * 100}}">
-                                                <div class="progress-bar progress"></div>
-                                            </div>
+                                            @if(count($officer->cases) == 0)
+                                                <div class="progress-wrap progress"
+                                                     data-progress-percent="0">
+                                                    <div class="progress-bar progress"></div>
+                                                </div>
+                                            @else
+                                                <div class="progress-wrap progress"
+                                                     data-progress-percent="{{$completed2/(count($officer->cases)) * 100}}">
+                                                    <div class="progress-bar progress"></div>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="number" hidden id="notcompleted" value="{{count($notcompleted)}}">
                                         <input type="number" hidden id="completed" value="{{count($completed)}}">
@@ -89,7 +97,7 @@
                     <div class="col-sm-6">
                         <div class="au-card m-b-30">
                             <div class="au-card-inner">
-                                <h3 class="title-2 m-b-40">Overall Tasks Completed</h3>
+                                <h3 class="title-2 m-b-40">Overall Cases Completed</h3>
                                 <canvas id="pieChart"></canvas>
                             </div>
                         </div>

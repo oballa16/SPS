@@ -22,7 +22,6 @@ class ChiefAccess
         if (Auth::user()->role == 3) {
             return $next($request);
         }
-
-        return redirect('/');
+        return redirect()->back();
     }
 }

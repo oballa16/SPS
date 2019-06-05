@@ -111,9 +111,14 @@
                     @endif
                 </div>
 
-                <div>
-                    <button type="submit" class="btn btn-primary mybtn" style="margin-bottom: 100px">Submit
-                    </button>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary mybtn" style="margin-bottom: 100px">Submit
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <a href="{{route('employeeWatchForm')}}" class="btn btn-primary">Put employees on watch</a>
+                    </div>
                 </div>
             </form>
         @else
@@ -124,11 +129,12 @@
                         Report to
                         supervisor
                     </button>
+                    <div>
+                        <a href="{{route('employeeWatchForm')}}" class="btn btn-primary">Put employees on watch</a>
+                    </div>
                 </div>
             </form>
         @endif
-        <div>
-            <a href="{{route('employeeWatchForm')}}" class="btn btn-danger">Put employees on watch</a>
-        </div>
+
     </div>
 @stop
