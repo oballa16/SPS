@@ -23,6 +23,6 @@ class OfficerAccess
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect()->back();
     }
 }

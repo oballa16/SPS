@@ -1,4 +1,3 @@
-<!-- Footer start -->
 <footer class="footer">
     <div class="container footer-inner">
         <div class="row">
@@ -7,24 +6,17 @@
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
                         <li>
-                            Address: 20/F Green Road, Dhanmondi, Dhaka
+                            Address: Deshmoret e 4 Shkurtit,Kompleksi Green Park
                         </li>
                         <li>
-                            Email: <a href="mailto:info@themevessel.com">info@themevessel.com</a>
+                            Email: <a href="mailto:info@themevessel.com">policiaeshtetit.gov.al</a>
                         </li>
                         <li>
-                            Phone: <a href="tel:+0477-85x6-552">+XXXX XXXX XXX</a>
+                            Phone: <a href="tel:+0477-85x6-552">129</a>
                         </li>
                         <li>
-                            Fax: +XXXX XXXX XXX
+                            Fax: +355 4 224 4204
                         </li>
-                    </ul>
-                    <ul class="social-list clearfix">
-                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -32,43 +24,32 @@
                 <div class="footer-item">
                     <h4>Useful Links</h4>
                     <ul class="links">
+
                         <li>
-                            <a href="about-1.html"><i class="fa fa-angle-right"></i>About us</a>
+                            <a href="{{route('services')}}"><i class="fa fa-angle-right"></i>Services</a>
                         </li>
                         <li>
-                            <a href="services-1.html"><i class="fa fa-angle-right"></i>Service</a>
+                            <a href="{{route('team')}}" target="blank"><i class="fa fa-angle-right"></i>Team</a>
                         </li>
                         <li>
-                            <a href="portfolio-3column.html"><i class="fa fa-angle-right"></i>Portfolio</a>
+                            <a href="{{route('news')}}"><i class="fa fa-angle-right"></i>News</a>
                         </li>
-                        <li>
-                            <a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a>
-                        </li>
-                        <li>
-                            <a href="blog-classic-sidebar-right.html"><i class="fa fa-angle-right"></i>Blog</a>
-                        </li>
-                        <li>
-                            <a href="gallery-3column.html"><i class="fa fa-angle-right"></i>Gallery</a>
-                        </li>
-                        <li>
-                            <a href="team.html"><i class="fa fa-angle-right"></i>Team</a>
-                        </li>
-                        <li>
-                            <a href="pricing-tables-1.html"><i class="fa fa-angle-right"></i>Pricing Tables</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div class="recent-posts footer-item">
-                    <h4>Recent Posts</h4>
+                    <h4>Recent News</h4>
                     <div class="media mb-4">
                         <a class="pr-3" href="portfolio-details.html">
                             <img src="http://placehold.it/75x75" alt="recent-portfolio">
                         </a>
                         <div class="media-body align-self-center">
-                            <p><a href="portfolio-details.html">Lectus tristique lacinia non in diam mauris ultricies rutrum mauris.</a></p>
-                            <p><i class="fa fa-calendar"></i>27 Feb 2018</p>
+                            <p><a href="portfolio-details.html">Më datë 13.05.2019, u arrestua në flagrancë shtetasi
+                                    P.S., vjeç 19, banues në Tiranë, pasi u kap duke drejtuar pa leje drejtimi, motorin
+                                    tip “Vespa”.</a></p>
+                            <p><i class="fa fa-calendar"></i> 13 May 2019</p>
                         </div>
                     </div>
                     <div class="media mb-4">
@@ -76,46 +57,33 @@
                             <img src="http://placehold.it/75x75" alt="recent-portfolio">
                         </a>
                         <div class="media-body align-self-center">
-                            <p><a href="portfolio-details.html">Lectus tristique lacinia non in diam mauris ultricies rutrum mauris</a></p>
-                            <p><i class="fa fa-calendar"></i>27 Feb 2018</p>
+                            <p><a href="portfolio-details.html">Më datë 14.05.2019, u arrestua në flagrancë shtetasi
+                                    V.D., vjeç 21, pasi mjeti tip “Opel” të cilin ai drejtonte, dyshohet të jetë i
+                                    vjedhur.</a></p>
+                            <p><i class="fa fa-calendar"></i>14 May 2019</p>
                         </div>
                     </div>
-                    <div class="media">
+                    <div class="media mb-4">
                         <a class="pr-3" href="portfolio-details.html">
                             <img src="http://placehold.it/75x75" alt="recent-portfolio">
                         </a>
                         <div class="media-body align-self-center">
-                            <p><a href="portfolio-details.html">Lectus tristique lacinia non in diam mauris ultricies rutrum mauris</a></p>
-                            <p><i class="fa fa-calendar"></i>27 Feb 2018</p>
+                            <p><a href="portfolio-details.html">Më datë 17.05.2019, u arrestua në flagrancë shtetasi
+                                    A.D., vjeç 21, pasi dyshohet te ketë qëlluar me çelës papagall në kokë një kalimtar
+                                    të rastësishëm.</a></p>
+                            <p><i class="fa fa-calendar"></i>17 May 2019</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="footer-item clearfix">
-                    <h4>Subscribe</h4>
-                    <div class="Subscribe-box">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                        <form action="#" method="GET">
-                            <p>
-                                <input type="text" class="form-contact" name="email" placeholder="Enter Address">
-                            </p>
-                            <p>
-                                <button type="submit" name="submitNewsletter" class="btn btn-block btn-color">
-                                    Subscribe
-                                </button>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <div class="row">
             <div class="col-xl-12">
-                <p class="copy">&copy;  2019 <a href="http://themevessel.com/" target="_blank">Theme Vessel</a>. Trademarks and brands are the property of their respective owners.</p>
+                <p class="copy">&copy; 2019 Epoka University.
+                    Trademarks and brands are the property of their respective owners.</p>
             </div>
         </div>
     </div>
 </footer>
-<!-- Footer end -->

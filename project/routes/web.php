@@ -22,6 +22,9 @@ Route::get('/about', function () {
 Route::get('/services', function () {
     return view('services');
 })->name('services');
+Route::get('/team', function () {
+    return view('team');
+});
 
 
 Auth::routes();
@@ -55,10 +58,11 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
  * Chief Police Officer Routes
  */
 
-Route::group(['middleware' => 'auth', 'chief'], function () {
+Route::group(['middleware' => ['auth', 'chief']], function () {
 
     Route::get('/employees', 'EmployeesController@index')->name('viewEmployeesChief');
     Route::get('/officers', 'EmployeesController@indexOfficers')->name('viewOfficersChief');
+    Route::get('/allcases', 'EmployeesController@allcases')->name('viewAllCases');
 
 });
 
@@ -68,7 +72,7 @@ Route::group(['middleware' => 'auth', 'chief'], function () {
  */
 
 Route::group(['middleware' => 'auth', 'internal'], function () {
-
+    Route::post('/users/{id}', 'UserController@sendMessage')->name('sendMessage');
     Route::get('/users/{id}/investigation', 'UserController@internalInv')->name('startInvestigation');
     Route::post('/users/investigation', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
     Route::get('/users', 'UserController@index')->name('userLookup');
@@ -89,7 +93,6 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
  */
 
 Route::group(['middleware' => 'auth'], function () {
-
     /*
      * Change Password
      */
@@ -103,19 +106,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('citizens', 'CitizensController@index2')->name('citizenSearch');
     Route::get('/citizens/{id}', 'CitizensController@show')->name('openProfile');
 
-
-});
-
-/*
- * Regular Police Employee Routes
- */
-
-Route::group(['middleware' => 'auth', 'employee'], function () {
-
-    Route::get('/employee/tickets', 'ServicesController@addTickets')->name('addTickets');
-    Route::post('employee', 'ServicesController@storeTickets')->name('storeNewTicket');
-    Route::get('/employee/tasks', 'TasksController@indexTasks')->name('tasks');
-    Route::patch('/employee/tasks/{id}', 'TasksController@completeTask')->name('completeTask');
     Route::get('/employee/tasks/{id}/file-report', 'TasksController@showFileUpload')->name('showFileUpload');
     Route::post('employee/tasks/{id}/file-report', 'TasksController@uploadFileReport')->name('uploadFileReport');
     Route::get('/files/{fileid}', 'TasksController@showFile')->name('showFile');
@@ -123,13 +113,35 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
 
 
     /*
-     * Complaints
-     */
+    * Complaints
+    */
     Route::get('complaints/{id}', 'ComplaintsController@show')->name('complaint');
     Route::get('/complaints', 'ComplaintsController@index')->name('viewComplaints');
     Route::patch('complaints/{id}', 'ComplaintsController@update')->name('closeComplaint');
     Route::post('/complaints/handle/{id}', 'ComplaintsController@handle')->name('handleComplaint');
     Route::post('complaints/report/{id}', 'ComplaintsController@report')->name('reportComplaint');
+
+
+    Route::get('/archive', 'CasesController@openArchive')->name('archive');
+    Route::get('/archive/search', 'CasesController@searchArchive')->name('searchArchive');
+
+    Route::get('/cases/{id}/{caseid}', 'CasesController@show')->name('openCase'); // id= officer-id
+    Route::get('/cases/{id}/{caseid}/download', 'CasesController@zipFiles')->name("zipFile"); // id == officer id
+
+});
+
+/*
+ * Regular Police Employee Routes
+ */
+
+Route::group(['middleware' => ['auth', 'employee']], function () {
+
+    Route::get('/employee/tickets', 'ServicesController@addTickets')->name('addTickets');
+    Route::post('employee', 'ServicesController@storeTickets')->name('storeNewTicket');
+    Route::get('/employee/tasks/{id}', 'TasksController@showTask')->name('openTask');
+    Route::get('/employee/tasks', 'TasksController@indexTasks')->name('tasks');
+    Route::patch('/employee/tasks/{id}', 'TasksController@completeTask')->name('completeTask');
+
 });
 
 
@@ -137,7 +149,7 @@ Route::group(['middleware' => 'auth', 'employee'], function () {
  * Police Officer Routes
  */
 
-Route::group(['middleware' => 'auth', 'officer'], function () {
+Route::group(['middleware' => ['auth', 'officer']], function () {
 
     Route::get('cases/addCase', 'CasesController@create')->name('addCase');
     Route::post('cases/addCase', 'CasesController@store')->name('storeCase');
@@ -148,6 +160,7 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
     Route::post('cases/{id}/people', 'CasesController@addPeople')->name('addPeople');
     Route::delete('cases/{id}/people', 'CasesController@deletePeople')->name('deletePeople');
     Route::post('cases/{id}/citizenSearch', 'CasesController@citizenSearch')->name('citizenSearchCase');
+
     Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
     Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
     Route::patch('cases/{id}/close', 'CasesController@closeCase')->name('closeCase');
@@ -158,12 +171,7 @@ Route::group(['middleware' => 'auth', 'officer'], function () {
 
     Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask'); // id == officer-id
     Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask'); // id == officer - id
-    Route::get('/cases/{id}/{caseid}', 'CasesController@show')->name('openCase'); // id= officer-id
-    Route::get('/cases/{id}/{caseid}/download', 'CasesController@zipFiles')->name("zipFile"); // id == officer id
 
-
-    Route::get('/archive', 'CasesController@openArchive')->name('archive');
-    Route::get('/archive/search', 'CasesController@searchArchive')->name('searchArchive');
 
 });
 

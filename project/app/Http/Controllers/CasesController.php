@@ -24,15 +24,10 @@ class CasesController extends Controller
         $this->middleware('auth');
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($id)
     {
         $officer = User::findOrFail($id);
+        abort_if($officer->id != Auth::user()->id, 403);
         $cases = $officer->cases()->get();
         $tasks = $officer->OfficerTasks()->orderBy('created_at', 'desc')->get();
         $employees = User::where('role', 1)->get();
@@ -71,6 +66,7 @@ class CasesController extends Controller
     public function showTask($id)
     {
         $officer = User::findOrFail($id);
+        abort_if($officer->id != Auth::user()->id, 403);
         $cases = $officer->cases()->get();
         $tasks = $officer->OfficerTasks()->get();
         $employees = User::where('role', 1)->get();
@@ -84,12 +80,6 @@ class CasesController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -120,6 +110,7 @@ class CasesController extends Controller
      */
     public function show($id, $caseid)
     {
+        abort_if(Auth::user()->role == '1', 403);
         $case = Cases::findOrFail($caseid);
         $files = File::where('case_id', $caseid)->get();
 //        $people = DB::query('select ')
@@ -128,6 +119,7 @@ class CasesController extends Controller
 
     public function zipFiles($id, $caseid)
     {
+        abort_if(Auth::user()->role == '1', 403);
         $case = Cases::where('id', $caseid)->get()->first();
         $files = $case->files()->get();
         $zip_file = 'Case_' . $case->title;

@@ -16,6 +16,8 @@
     <link href="{{asset('theme')}}/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
           media="all">
 
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{{asset('front')}}/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS-->
     <link href="{{asset('theme')}}/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
@@ -63,60 +65,36 @@
     <div id="app" class="wrapper">
         {{-- My Sidebar--}}
         <div id="content">
-            {{----}}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                            <a class="navbar-brand logo" href="/">
-                                <img style="width: 30px;height: 40px;" src="{{asset('front')}}/img/logos/logo.png"
-                                     alt="logo">State Police System
+            <nav class="navbar navbar-expand-lg navbar-light rounded" style="margin-bottom: 40px;margin-top: 20px">
+                <a class="navbar-brand logo" href="/">
+                    <img src="{{asset('front')}}/img/logos/logo.png" alt="logo" style="width: 20px;height: 30px;"> State
+                    Police System
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('home')}}"
+                               id="navbarDropdownMenuLink7"> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link"
+                               href="{{route('showPassReset',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}"
+                               id="navbarDropdown9"> Change Password
                             </a>
-                        </ul>
+                        </li>
 
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown-item">
-                                    <a href="">Profile</a>
-                                </li>
-                                <li class="nav-item dropdown-item">
-                                    <a href="{{route('showPassReset',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">Change
-                                        Password</a></li>
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              class="dropdown-item">
-                                            @csrf
-                                            <button type="submit" class="dropdown-item">{{ __('Logout') }}</button>
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                        <li class="nav-item">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  class="dropdown-item">
+                                @csrf
+                                <button type="submit" class="dropdown-item">{{ __('Logout') }}</button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>

@@ -20,8 +20,11 @@ class EmployeesController extends Controller
             $completed2 = $employee->EmployeeTasks->filter(function ($item) {
                 return $item->status == 'Completed';
             })->count();
-
-            $score = $completed2 / count($employee->EmployeeTasks) * 100;
+            if (count($employee->EmployeeTasks) == 0) {
+                $score = 0;
+            } else {
+                $score = $completed2 / count($employee->EmployeeTasks) * 100;
+            }
             if ($score > $max) {
                 $max = $score;
                 $winner = $employee;
@@ -43,7 +46,13 @@ class EmployeesController extends Controller
                 return $item->status == 'Closed';
             })->count();
 
-            $score = $completed2 / count($officer->cases) * 100;
+            if (count($officer->cases) == 0) {
+                $score = 0;
+            } else {
+                $score = $completed2 / count($officer->cases) * 100;
+            }
+
+
             if ($score > $max) {
                 $max = $score;
                 $winner = $officer;
@@ -54,4 +63,10 @@ class EmployeesController extends Controller
             ->with('winner', $winner)->with('score', $score);
     }
 
+
+    public function allcases()
+    {
+        $cases = Cases::all();
+        return view('chief.allcases')->with('cases', $cases);
+    }
 }
