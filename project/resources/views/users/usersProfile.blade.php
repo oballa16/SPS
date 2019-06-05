@@ -3,13 +3,9 @@
 @section('title')
     SPS » {{$users->name}} {{$users->surname}}
 @stop
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<hr>
 
 @section('content')
-    <div id='mainBanner' style="margin-top: -30px">
+    <div id='mainBanner'>
         <div class="container-fluid">
             <!-- Breadcrumbs-->
             <ol class="breadcrumb" style="margin-top: 20px">
@@ -41,6 +37,14 @@
                     <h2 style="color:#ffae42;font-weight: bold;">Status: On Watch</h2>
                 @elseif ($users->status=='2')
                     <h2 style="color:red;font-weight: bold">Status: Under Investigation</h2>
+                @endif
+                <hr>
+                @if($users->role == 2)
+                    <form method="post" action="{{route('sendMessage',['id' => $users->id])}}">
+                        @csrf
+                        <textarea name="message" id='message' placeholder="Enter message" required></textarea>
+                        <button class="btn btn-primary" type="submit">Send</button>
+                    </form>
                 @endif
             </div><!--/col-3-->
             <div class="col-sm-9">
@@ -104,13 +108,6 @@
         </div>
     </div>
     <div class="container-fluid">
-        @if (session('info'))
-            <div class="alert alert-success alert-dismissible fade show">
-                {{ session('info') }}
-            </div>
-        @endif
-    </div>
-    <div class="container-fluid">
         <div class="blog-section content-area-2">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -161,44 +158,24 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="margin: 20px">
-        <div class="row justify-content-center">
-            <b>
-                <center>
-                    <div class="card-header">ACTIONS</div>
-                </center>
-            </b>
-            <br><br>
-            <center><a data-animation="animated fadeInUp delay-10s"
-                       href="{{route('showEmailForm',['id' => $users->id])}}"
-                       class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
-            <br><br>
-            <center><a data-animation="animated fadeInUp delay-10s"
-                       href="{{route('startInvestigation',['id' => $users->id])}}"
-                       class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
+    @if(\Illuminate\Support\Facades\Auth::user()->role == 4)
+        <div class="container-fluid" style="margin: 20px">
+            <div class="row justify-content-center">
+                <b>
+                    <center>
+                        <div class="card-header">ACTIONS</div>
+                    </center>
+                </b>
+                <br><br>
+                <center><a data-animation="animated fadeInUp delay-10s"
+                           href="{{route('showEmailForm',['id' => $users->id])}}"
+                           class="btn btn-lg btn-round btn-theme" style="width: 95%;">Send Email</a></center>
+                <br><br>
+                <center><a data-animation="animated fadeInUp delay-10s"
+                           href="{{route('startInvestigation',['id' => $users->id])}}"
+                           class="btn btn-lg btn-round btn-theme" style="width: 95%;">Start Investigation</a></center>
 
+            </div>
         </div>
-    </div>
-
-    <script>
-        $(document).ready(function () {
-
-
-            var readURL = function (input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('.avatar').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-
-
-            $(".file-upload").on('change', function () {
-                readURL(this);
-            });
-        });</script>
+    @endif
 @stop

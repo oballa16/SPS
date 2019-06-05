@@ -30,6 +30,13 @@ class TasksController extends Controller
         return view('employee.employeeTasks')->with('tasks', $tasks);
     }
 
+
+    public function showTask($id)
+    {
+        $task = Task::findOrFail($id);
+        return view('employee.taskView')->with('task', $task);
+    }
+
     public function completeTask($id)
     {
         $task = Task::findOrFail($id);

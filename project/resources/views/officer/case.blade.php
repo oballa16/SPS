@@ -22,11 +22,21 @@
                 <li class="breadcrumb-item">
                     <a href="{{route('home')}}">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item"><a
-                            href="{{route('viewCases',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">
-                        Cases</a>
-                </li>
-                <li class="breadcrumb-item active">{{$case->title}}</li>
+                @if(\Illuminate\Support\Facades\Auth::user()->role==3)
+                    <li class="breadcrumb-item"><a
+                                href="{{route('viewAllCases')}}">
+                            Cases</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{$case->title}}</li>
+                @elseif(Auth::user()->role == 2)
+                    <li class="breadcrumb-item"><a
+                                href="{{route('viewCases',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">
+                            Cases</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{$case->title}}</li>
+                @else
+                    <li class="breadcrumb-item active">{{$case->title}}</li>
+                @endif
             </ol>
         </div>
     </div>

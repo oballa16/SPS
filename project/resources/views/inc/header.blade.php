@@ -23,16 +23,11 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('team')}}" id="navbarDropdownMenuLink2"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Team
+                                   aria-haspopup="true" aria-expanded="false"> Team
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link " href="/news" id="navbarDropdownMenuLink5"> Newsroom
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown d-none d-md-block">
-                                <a href="#full-page-search" class="nav-link">
-                                    <i class="fa fa-search"></i>
+                                <a class="nav-link " href="{{route('news')}}" id="navbarDropdownMenuLink5"> Newsroom
                                 </a>
                             </li>
                             @if(\Illuminate\Support\Facades\Auth::guest())
@@ -41,7 +36,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home"
+                                    <a class="nav-link" href="{{route('home')}}"
                                        id="navbarDropdownMenuLink7"> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                                 </li>
                             @endif
