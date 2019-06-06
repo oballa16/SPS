@@ -155,13 +155,13 @@ class CasesController extends Controller
     public function showCaseFileUpload($id)
     {
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id == Auth::user()->id or Auth::user()->role == 3, 403);
         return view('officer.uploadCaseReport')->with('case', $case);
     }
 
     public function deleteCaseFile($id, $fileid)
     {
-        abort_if($id != Auth::user()->id, 403);
+        abort_unless($id != Auth::user()->id or Auth::user()->role == 3, 403);
         $file = File::findOrFail($fileid);
         $filename = $file->filename;
         $path = Storage::disk('reports')->path($filename);
@@ -175,30 +175,35 @@ class CasesController extends Controller
         $this->validate($request,
             ['report' => 'required|mimes:pdf']);
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
-        $path = $request->file('report')->store('Reports');
-//        dd($path);
-        $name = substr($path, 8, strlen($path));
+        abort_unless($case->filedBy->id == Auth::user()->id or Auth::user()->role == 3, 403);
+        $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
+//        dd($name);
+        Storage::disk('reports')->putFileAs('reports', $request['report'], $name);
         $file = new File();
         $file->filename = $name;
         $file->case_id = $case->id;
         $file->employee_id = $case->filedBy->id;
         $file->task_id = null;
         $file->save();
-        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'File report uploaded successfully');
+        if (Auth::user()->role == 3) {
+            return redirect()->route('viewAllCases')->with('info', 'File report uploaded successfully');
+
+        } else {
+            return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'File report uploaded successfully');
+        }
     }
 
     public function showEditForm($id)
     {
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         return view('officer.editCase')->with('case', $case);
     }
 
     public function showPeopleForm($id)
     {
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $citizens = [];
         return view('officer.addPeople')->with('case', $case)->with('citizens', $citizens);
     }
@@ -214,39 +219,54 @@ class CasesController extends Controller
         ]);
 
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $case->title = $request['title'];
         $case->description = $request['description'];
         $case->start_date = $request['start_date'];
         $case->end_date = $request['end_date'];
         $case->place = $request['place'];
         $case->save();
-        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case edited successfully');
+        if (Auth::user()->role == 3) {
+            return redirect()->route('viewAllCases')->with('info', 'Case edited successfully');
+
+        } else {
+            return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case edited successfully');
+        }
     }
 
     public function closeCase(Request $request, $id)
     {
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $case->status = "Closed";
-        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case closed successfully');
+        $case->save();
+        if (Auth::user()->role == 3) {
+            return redirect()->route('viewAllCases')->with('info', 'Case closed successfully');
+
+        } else {
+            return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Case closed successfully');
+        }
     }
 
     public function addPeople(Request $request, $id)
     {
         $citizen = Citizen::findOrFail($request['id']);
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $case->people()->attach($citizen);
         $case->save();
-        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen added successfully to case');
-    }
+        if (Auth::user()->role == 3) {
+            return redirect()->route('viewAllCases')->with('info', 'Citizen added successfully to case');
 
+        } else {
+            return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen added successfully to case');
+        }
+    }
 
     public function citizenSearch(Request $request, $id)
     {
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $citizens = Citizen::where($request['search'], $request['searchValue'])->get();
         return view('officer.addPeople')->with('citizens', $citizens)->with('case', $case);
     }
@@ -255,9 +275,14 @@ class CasesController extends Controller
     {
         $citizen = Citizen::findOrFail($request['id']);
         $case = Cases::findOrFail($id);
-        abort_if($case->filedBy->id != Auth::user()->id, 403);
+        abort_unless($case->filedBy->id != Auth::user()->id or Auth::user()->role == 3, 403);
         $case->people()->detach($citizen);
         $case->save();
-        return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen removed successfully from case');
+        if (Auth::user()->role == 3) {
+            return redirect()->route('viewAllCases')->with('info', 'Citizen removed successfully from case');
+
+        } else {
+            return redirect()->route('viewCases', ['id' => $case->filedBy->id])->with('info', 'Citizen removed successfully from case');
+        }
     }
 }
