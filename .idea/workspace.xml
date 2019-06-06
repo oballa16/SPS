@@ -2,93 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="684272f4-a876-4a8e-83ed-4877e4a2a6cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/chiefPoliceCheckPerformances.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/chiefPoliceCheckPerformances.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/internalAffairsCheckEmployees.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/internalAffairsCheckEmployees.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/internalAffairsViewInvestigations.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/internalAffairsViewInvestigations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/policeEmployeeRespondComplaints.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/policeEmployeeRespondComplaints.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/policeOfficerViewCases.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Activity Diagrams/policeOfficerViewCases.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Class Diagrams/classDiagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Class Diagrams/classDiagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Citizen-Police Employee Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Citizen-Police Employee Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Internal Affairs - Prosecution Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Internal Affairs - Prosecution Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Employee - Police Officer Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Employee - Police Officer Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Chief Police Officer - Internal Affairs Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Chief Police Officer - Internal Affairs Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Chief Police Officer Report Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Chief Police Officer Report Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Modules Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/Police Officer - Modules Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/citizen Collaboration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Collaboration Diagrams/citizen Collaboration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Data Flow Diagrams/DFD-Lvl2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Data Flow Diagrams/DFD-Lvl2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Database Schema/DB_SCHEMA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Deployment Diagram/Deployment Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Deployment Diagram/Deployment Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Deployment Diagram/txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Entity Relation Diagram/EntityRelationDiagram.xml.erdplus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Entity Relation Diagram/erdplus-diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Object Diagrams/Object Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Object Diagrams/Object Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Chief Police Officer Sequence Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Chief Police Officer Sequence Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Citizen Sequence Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Citizen Sequence Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Internal Affairs Sequence Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Internal Affairs Sequence Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Police Employee Sequence Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Police Employee Sequence Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Police Officer Sequence Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Sequence Diagrams/Police Officer Sequence Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/Chief Police Officer State Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/Chief Police Officer State Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/Police Employee State Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/Police Employee State Diagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/citizenStateDiagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/citizenStateDiagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/internalAffairsStateDiagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/internalAffairsStateDiagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/policeOfficerStateDiagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/State Diagrams/policeOfficerStateDiagram.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Chief Police Officer Use Case 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Chief Police Officer Use Case 1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Citizen Use Case.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Citizen Use Case.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Internal Affairs Officer Use Case 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Internal Affairs Officer Use Case 1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Police Officer Use Case 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Police Officer Use Case 1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Regular Police Employee Use Case 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Regular Police Employee Use Case 1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Use Case Overall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final Diagrams/Use Case Diagrams/Use Case Overall.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Http/Middleware/Suspended.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/resources/views/internal/showFileUpload.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/resources/views/internal/viewInvestigations.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Middleware/ChiefAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Middleware/ChiefAccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Middleware/EmployeeAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Middleware/EmployeeAccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Middleware/OfficerAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Middleware/OfficerAccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Investigations.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Investigations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/project/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/database/migrations/2019_05_25_142312_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/database/migrations/2019_05_25_142312_create_tickets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/chief/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/chief/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/employee/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/employee/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/internal/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/internal/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/officer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/officer/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/internal/home.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="77" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
+            <state relative-caret-position="259">
+              <caret line="114" column="95" lean-forward="true" selection-start-line="114" selection-start-column="95" selection-end-line="114" selection-end-column="95" />
             </state>
           </provider>
         </entry>
@@ -134,15 +48,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/employee/fileUpload.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -152,42 +57,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/ComplaintsController.php">
+        <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/database/migrations/2019_05_25_152553_add_price_to_tickets.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/database/migrations/2019_05_25_142312_create_tickets_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/internal/startInvestigation.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="34">
+              <caret line="23" column="25" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="25" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -195,8 +71,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-750">
+            <state relative-caret-position="372">
               <caret line="83" selection-start-line="83" selection-end-line="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/internal/startInvestigation.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="32" column="61" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -295,13 +180,13 @@
         <option value="$PROJECT_DIR$/project/app/Http/Middleware/OfficerAccess.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php" />
         <option value="$PROJECT_DIR$/project/resources/views/internal/viewInvestigations.blade.php" />
-        <option value="$PROJECT_DIR$/project/routes/web.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Middleware/Suspended.php" />
         <option value="$PROJECT_DIR$/project/resources/views/internal/home.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php" />
         <option value="$PROJECT_DIR$/project/database/migrations/2019_05_25_142312_create_tickets_table.php" />
         <option value="$PROJECT_DIR$/project/.env" />
+        <option value="$PROJECT_DIR$/project/routes/web.php" />
       </list>
     </option>
   </component>
@@ -881,11 +766,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559777420456</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Merge branch 'master' of https://github.com/oballa16/SPS into kristian&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;project/resources/views/internal/home.blade.php&#10;#&#9;project/resources/views/internal/viewInvestigations.blade.php">
+      <created>1559849884232</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1559849884233</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176097000" />
+    <option name="totallyTimeSpent" value="177555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -898,6 +790,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.2637584" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.24966443" />
@@ -1011,7 +904,8 @@
     <MESSAGE value="File upload correct path" />
     <MESSAGE value="Security changes,chief and internal can send messsages to officers" />
     <MESSAGE value="Routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Routes" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/oballa16/SPS into kristian&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;project/resources/views/internal/home.blade.php&#10;#&#9;project/resources/views/internal/viewInvestigations.blade.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/oballa16/SPS into kristian&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;project/resources/views/internal/home.blade.php&#10;#&#9;project/resources/views/internal/viewInvestigations.blade.php" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project/app/Http/Middleware/InternalAccess.php">
@@ -1197,16 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/layouts/new.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2057">
@@ -1258,13 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/app/Http/Middleware/Suspended.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1272,13 +1149,6 @@
           <folding>
             <element signature="e#39#51#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/internal/startInvestigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
@@ -1292,13 +1162,6 @@
     <entry file="file://$PROJECT_DIR$/project/app/InvestigationFile.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/chief/employees.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/EmployeesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1306,13 +1169,6 @@
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
         </state>
       </provider>
     </entry>
@@ -1325,20 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="67" column="64" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/ComplaintsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1356,6 +1198,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/ComplaintsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/TasksController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="67" column="64" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/internal/startInvestigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="32" column="61" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/IntAffairsInvestigationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/chief/employees.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="114" column="95" lean-forward="true" selection-start-line="114" selection-start-column="95" selection-end-line="114" selection-end-column="95" />
         </state>
       </provider>
     </entry>
