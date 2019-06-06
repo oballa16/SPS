@@ -38,7 +38,7 @@
     </div>
     <div class="card">
         <div class="card-header" style="text-align: center;;">
-            <strong>Edit a case</strong>
+            <strong>Add a new case</strong>
         </div>
         <div class="card-body card-block">
             <form action="{{route('storeCase')}}"

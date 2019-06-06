@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
-
 class IntAffairsInvestigationsController extends Controller
 {
 
@@ -103,7 +102,7 @@ class IntAffairsInvestigationsController extends Controller
         $investigation = Investigations::findOrFail($id);
         $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
 
-        Storage::disk('internal')->put($name, $request['report']);
+        Storage::disk('internal')->putFileAs('internal', $name, $request['report']);
 //        $path = $request->file('report')->store(storage_path('app/Internal/'), $name);
         $file = new InvestigationFile();
         $file->filename = $name;

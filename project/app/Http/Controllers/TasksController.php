@@ -81,7 +81,7 @@ class TasksController extends Controller
         $filePath = $file->filename;
         if ($filePath == null)
             abort(404);
-        $path = Storage::disk('reports')->path($filePath);
+        $path = Storage::disk('reports')->path('Reports/' . $filePath);
 
         return Response::make(file_get_contents($path), 200, [
             'Content-Type' => 'application/pdf',
@@ -93,7 +93,7 @@ class TasksController extends Controller
     {
         $file = File::findOrFail($fileid);
         $filename = $file->filename;
-        $path = Storage::disk('reports')->path($filename);
+        $path = Storage::disk('reports')->path('Reports/' . $filename);
         Storage::delete($path);
         $file->delete();
         return redirect()->back()->with('info', 'File report deleted successfully');
