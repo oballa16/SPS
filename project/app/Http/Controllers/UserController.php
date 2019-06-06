@@ -105,7 +105,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->status = 1;
         $user->save();
-        return \redirect()->route('viewComplaints')->with('info', 'Employee added on watch.');
+        return \redirect()->route('home')->with('info', 'Employee added on watch.');
     }
 
     public function showEmailForm($id)

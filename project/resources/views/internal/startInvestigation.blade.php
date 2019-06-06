@@ -30,7 +30,8 @@
                     <strong>Record Investigation</strong> File
                 </div>
                 <div class="card-body card-block">
-                    <form action="{{ route('saveInvestigation')}}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('saveInvestigation',['id'=>$user->id])}}" method="POST"
+                          enctype="multipart/form-data"
                           class="form-horizontal">
                         @csrf
                         <div class="row form-group">
