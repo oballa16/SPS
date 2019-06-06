@@ -23,6 +23,6 @@ class InternalAccess
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect()->back();
     }
 }

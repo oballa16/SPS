@@ -16,6 +16,8 @@
     <link href="{{asset('theme')}}/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
           media="all">
 
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{{asset('front')}}/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS-->
     <link href="{{asset('theme')}}/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
@@ -35,7 +37,27 @@
 
     <!-- Main CSS-->
     <link href="{{asset('theme')}}/css/theme.css" rel="stylesheet" media="all">
+    <style>
+        .progress {
+            width: 100%;
+            height: 20px;
+        }
 
+        .progress-wrap {
+            background: green;
+            margin: 5px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: #ddd;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -43,56 +65,36 @@
     <div id="app" class="wrapper">
         {{-- My Sidebar--}}
         <div id="content">
-            {{----}}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light rounded" style="margin-bottom: 40px;margin-top: 20px">
+                <a class="navbar-brand logo" href="/">
+                    <img src="{{asset('front')}}/img/logos/logo.png" alt="logo" style="width: 20px;height: 30px;"> State
+                    Police System
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('home')}}"
+                               id="navbarDropdownMenuLink7"> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link"
+                               href="{{route('showPassReset',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}"
+                               id="navbarDropdown9"> Change Password
+                            </a>
+                        </li>
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Open Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              class="dropdown-item">
-                                            @csrf
-                                            <button type="submit" class="dropdown-item">{{ __('Logout') }}</button>
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                        <li class="nav-item">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  class="dropdown-item">
+                                @csrf
+                                <button type="submit" class="dropdown-item">{{ __('Logout') }}</button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
@@ -100,85 +102,6 @@
     @yield('content')
 
 </div>
-<!-- Jquery JS-->
-
-
-{{--<div class="modal" id="modalTaskForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"--}}
-{{--aria-hidden="true">--}}
-{{--<div class="modal-dialog" role="document">--}}
-{{--<div class="modal-content">--}}
-{{--<div class="modal-header text-center">--}}
-{{--<h4 class="modal-title w-100 font-weight-bold">Tasks</h4>--}}
-{{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--<span aria-hidden="true">&times;</span>--}}
-{{--</button>--}}
-{{--</div>--}}
-{{--<div class="modal-body mx-3">--}}
-{{--<div class="md-form mb-5">--}}
-{{--<form action="{{route('addTask',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}"--}}
-{{--method="post">--}}
-{{--@csrf--}}
-{{--<div class="form-group">--}}
-{{--<label for="title">Title</label>--}}
-{{--<input type="text" id='title' name='title' value="{{old('title')}}" required autofocus>--}}
-{{--@if ($errors->has('title'))--}}
-{{--<span class="help-block">--}}
-{{--<strong>{{ $errors->first('title') }}</strong>--}}
-{{--</span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-{{--<label for="description">Description</label>--}}
-{{--<textarea name="description" id="description" required--}}
-{{--autofocus>{{old('description')}}</textarea>--}}
-{{--@if ($errors->has('description'))--}}
-{{--<span class="help-block">--}}
-{{--<strong>{{ $errors->first('description') }}</strong>--}}
-{{--</span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--<div class="form-group{{ $errors->has('case') ? ' has-error' : '' }}">--}}
-{{--<label for="case" class="col-md-4 control-label">Case Number</label>--}}
-{{--<div class="col-md-12">--}}
-{{--<select id="case" class="form-control" name="case"--}}
-{{--style="height: 55px;" required autofocus>--}}
-{{--@foreach($cases as $case)--}}
-{{--<option value="{{$case->id}}">{{$case->title}}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--@if ($errors->has('case'))--}}
-{{--<span class="help-block">--}}
-{{--<strong>{{ $errors->first('case') }}</strong>--}}
-{{--</span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group{{ $errors->has('employee') ? ' has-error' : '' }}">--}}
-{{--<label for="case" class="col-md-4 control-label">Employee</label>--}}
-{{--<div class="col-md-12">--}}
-{{--<select id="employee" class="form-control" name="employee"--}}
-{{--style="height: 55px;" required autofocus>--}}
-{{--@foreach($employees as $employee)--}}
-{{--<option value="{{$employee->id}}">{{$employee->name}}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--@if ($errors->has('employee'))--}}
-{{--<span class="help-block">--}}
-{{--<strong>{{ $errors->first('employee') }}</strong>--}}
-{{--</span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<button type='submit'--}}
-{{--class='btn btn-primary'>--}}
-{{--Add--}}
-{{--</button>--}}
-{{--</form>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
 
 <!-- Bootstrap JS-->
 <script src="{{asset('theme')}}/vendor/bootstrap-4.1/popper.min.js"></script>
@@ -190,9 +113,8 @@
 <script src="{{asset('theme')}}/vendor/animsition/animsition.min.js"></script>
 <script src="{{asset('theme')}}/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 </script>
-<script src="{{asset('theme')}}/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="{{asset('theme')}}/vendor/counter-up/jquery.counterup.min.js">
-</script>
+{{--<script src="{{asset('theme')}}/vendor/counter-up/jquery.waypoints.min.js"></script>--}}
+{{--<script src="{{asset('theme')}}/vendor/counter-up/jquery.counterup.min.js"></script>--}}
 <script src="{{asset('theme')}}/vendor/circle-progress/circle-progress.min.js"></script>
 <script src="{{asset('theme')}}/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="{{asset('theme')}}/vendor/chartjs/Chart.bundle.min.js"></script>

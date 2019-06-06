@@ -1,7 +1,7 @@
 @extends('layouts.new')
 
 @section('title')
-    SPS » My Cases
+    SPS » Archive Search
 @stop
 
 

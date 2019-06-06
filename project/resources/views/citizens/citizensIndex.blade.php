@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('inc.inside')
 
 @section('title')
     SPS » Citizen Lookup
@@ -7,7 +7,8 @@
 @section('content')
     <div id='mainBanner'>
         <!-- Sub banner start -->
-        <div class="sub-banner overview-bgi" style="background-image: url('{{asset('front')}}/img/police.jpg');height: 300px;">
+        <div class="sub-banner overview-bgi"
+             style="background-image: url('{{asset('front')}}/img/police.jpg');height: 300px;">
             <div class="container">
                 <div class="breadcrumb-area">
                     <h1 style="color: white;">Citizen Database Lookup</h1>
@@ -90,7 +91,8 @@
                             <td>{{$citizen->personal_no}}</td>
                             <td>{{strtoupper($citizen->maritial_status)}}</td>
                             <td>
-                                <a href="{{route('openProfile',['id'=>$citizen->id])}}" class="btn btn-danger btn-sm"
+                                <a href="{{route('openProfile',['id'=>$citizen->id])}}"
+                                   class="btn btn-danger btn-sm"
                                    style="font-weight:bold;cursor:pointer;">Open</a>
                             </td>
                         </tr>

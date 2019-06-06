@@ -30,6 +30,13 @@ class TasksController extends Controller
         return view('employee.employeeTasks')->with('tasks', $tasks);
     }
 
+
+    public function showTask($id)
+    {
+        $task = Task::findOrFail($id);
+        return view('employee.taskView')->with('task', $task);
+    }
+
     public function completeTask($id)
     {
         $task = Task::findOrFail($id);
@@ -57,9 +64,8 @@ class TasksController extends Controller
         $this->validate($request,
             ['report' => 'required|mimes:pdf']);
         $task = Task::findOrFail($id);
-        $path = $request->file('report')->store('Reports');
-//        dd($path);
-        $name = substr($path, 8, strlen($path));
+        $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
+        $path = $request->file('report')->store('Reports', $name);
         $file = new File();
         $file->filename = $name;
         $file->case_id = $task->caseRelated->id;
@@ -75,7 +81,7 @@ class TasksController extends Controller
         $filePath = $file->filename;
         if ($filePath == null)
             abort(404);
-        $path = Storage::disk('reports')->path($filePath);
+        $path = Storage::disk('reports')->path('Reports/' . $filePath);
 
         return Response::make(file_get_contents($path), 200, [
             'Content-Type' => 'application/pdf',
@@ -87,7 +93,7 @@ class TasksController extends Controller
     {
         $file = File::findOrFail($fileid);
         $filename = $file->filename;
-        $path = Storage::disk('reports')->path($filename);
+        $path = Storage::disk('reports')->path('Reports/' . $filename);
         Storage::delete($path);
         $file->delete();
         return redirect()->back()->with('info', 'File report deleted successfully');

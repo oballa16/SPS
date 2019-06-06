@@ -19,10 +19,12 @@ class ChiefAccess
         if (Auth::guest()) {
             return abort(403);
         }
-        if (Auth::user()->role == 3) {
+        if (Auth::user()->role == 3 and Auth::user()->suspended == 0) {
             return $next($request);
         }
-
-        return redirect('/');
+        else if (Auth::user()->role == 3 and Auth::user()->suspended == 1) {
+            return redirect()->back()->with('info', 'You are suspended from using the system');
+        }
+        return redirect()->back();
     }
 }

@@ -20,7 +20,13 @@
             </div>
         </div>
     @endif
-
+    <div class="container-fluid">
+        @if (session('info'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
     <div id="content-wrapper" style="margin-top: 20px">
 
         <div class="container-fluid">
@@ -28,7 +34,7 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a>Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">Overview</li>
             </ol>
@@ -41,9 +47,9 @@
                             <div class="card-body-icon">
                                 <i class="fas fa-folder-open"></i>
                             </div>
-                            <div class="mr-5">Cases</div>
+                            <div class="mr-5">Employees</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewCases')}}">
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewEmployeesChief')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -52,14 +58,30 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card text-white bg-dark o-hidden h-100">
                         <div class="card-body">
                             <div class="card-body-icon">
-                                <i class="fas fa-tasks"></i>
+                                <i class="fas fa-folder-open"></i>
                             </div>
-                            <div class="mr-5">11 New Tasks!</div>
+                            <div class="mr-5">Officers</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewOfficersChief')}}">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                  <i class="fas fa-angle-right"></i>
+                </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <div class="mr-5">Cases</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewAllCases')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -75,7 +97,7 @@
                             </div>
                             <div class="mr-5">Archive</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('archive')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -118,5 +140,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.new')
 
 @section('title')
-    SPS >> Add task
+    SPS » Add task
 @stop
 
 

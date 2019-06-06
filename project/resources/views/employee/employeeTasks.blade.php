@@ -9,7 +9,7 @@
              style="background-image: url('{{asset('front')}}/img/police.jpg');height: 300px;">
             <div class="container">
                 <div class="breadcrumb-area">
-                    <h1>Add Tickets</h1>
+                    <h1>Employee Tasks</h1>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                             <td>
                                 <span class="block-email">{{$task->date}}</span>
                             </td>
-                            <td> {{$task->title}}</td>
+                            <td><a href="{{route('openTask',['id'=>$task->id])}}">{{$task->title}}</a></td>
                             <td class="desc">{{substr($task->description,0,40)}}</td>
                             <td>{{$task->caseRelated->title}}</td>
                             <td>{{$task->officer->name}}</td>
@@ -75,10 +75,6 @@
                                             <i class="zmdi zmdi-upload"></i>
                                         </button>
                                     </a>
-                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-
                                     @if($task->status == 'Open')
                                         <form method="post" action="{{route('completeTask',['id'=>$task->id])}}">
                                             @method('PATCH')
@@ -90,9 +86,6 @@
                                             </button>
                                         </form>
                                     @endif
-                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </button>
                                 </div>
                             </td>
                         </tr>

@@ -64,6 +64,8 @@ class Kernel extends HttpKernel
         'officer' => \App\Http\Middleware\OfficerAccess::class,
         'chief' => \App\Http\Middleware\ChiefAccess::class,
         'internal' => \App\Http\Middleware\InternalAccess::class,
+        'not-suspended' => \App\Http\Middleware\Suspended::class,
+        'chief-officer' => \App\Http\Middleware\ChiefOrOfficer::class,
     ];
 
     /**

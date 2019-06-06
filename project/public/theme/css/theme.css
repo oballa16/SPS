@@ -1,45 +1,80 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
+/** OVERVIEW BGI **/
+.overview-bgi {
+    position: relative;
+}
 
-Project:  CoolAdmin
-Version:	1.0
-Last change:	08/10/2018 [Add Define a table of contents Link]
-Assigned to:	Hau Nguyen
-Primary use:	Open Source
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
+.overview-bgi:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
-* body
-    + Header / header
-	+ Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-	+ Footer / footer
+.overview .btn-border {
+    padding: 7px 12px !important;
+    border-radius: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+}
 
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-# [Color codes]
+/** SUB BANNER **/
+.sub-banner {
+    background: rgba(0, 0, 0, 0.04) url(http://placehold.it/1920x355) top left repeat;
+    background-size: cover;
+    height: 355px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: rgba(36, 42, 53, 0.7);
+}
 
-# Text Color (text): #666666
-# Text Color Deep (Text, title): #333333
+.sub-banner .breadcrumb-area h1 {
+    margin: 0 0 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 30px;
+}
 
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Typography]
+.sub-banner .breadcrumb-area {
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+}
 
-Notes:	decreasing heading by 0.4em with every subsequent heading level
--------------------------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   SETTINGS                          */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   TOOLS                             */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   GENERIC                           */
-/*-----------------------------------------------------*/
-/* ----- Normalize ----- */
+.sub-banner .breadcrumbs li {
+    display: inline-block;
+    list-style: none;
+    font-size: 16px;
+}
+
+.sub-banner .breadcrumbs li a {
+    color: #fff;
+}
+
+.sub-banner .breadcrumbs .active {
+    margin-left: 7px;
+    color: #fff;
+}
+
+.sub-banner .breadcrumbs .active:before {
+    content: "\f105";
+    font-family: "FontAwesome";
+    font-size: 14px;
+    margin-right: 7px;
+    font-weight: 600;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -47,6 +82,7 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 
 ul {
     margin: 0;

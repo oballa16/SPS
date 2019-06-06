@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
 
@@ -45,4 +47,102 @@ class UserController extends Controller
             return redirect()->route('home')->with('info', 'Password updated successfully');
         }
     }
+
+    public function index()
+    {
+        $userS = [];
+        return view('users.usersIndex')->with('users', $userS);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index2(Request $request)
+    {
+        $this->validate($request, [
+            'search' => 'required',
+            'searchValue' => 'required'
+        ]);
+        $userS = User::where($request['search'], $request['searchValue'])->get();
+        return view('users.usersIndex')->with('users', $userS);
+    }
+
+    public function show($id)
+    {
+        $userS = User::findOrFail($id);
+        return view('users.usersProfile')->with('users', $userS);
+    }
+
+    public function internalInv($id)
+    {
+        $user = User::findOrFail($id);
+        return view('internal.startInvestigation')->with('user', $user);
+    }
+
+    public function showEmployeeFormWatch()
+    {
+        $userS = [];
+        return view('users.usersIndex')->with('users', $userS);
+    }
+
+    public function showEmployees(Request $request)
+    {
+        $this->validate($request, [
+            'search' => 'required',
+            'searchValue' => 'required'
+        ]);
+        $userS = User::where([$request['search'], $request['searchValue']
+        ], ['role', '!=', 4])->get();
+
+        return view('users.usersIndex')->with('users', $userS);
+    }
+
+    public function addToWatch($id)
+    {
+        $user = User::findOrFail($id);
+        $user->status = 1;
+        $user->save();
+        return \redirect()->route('viewComplaints')->with('info', 'Employee added on watch.');
+    }
+
+    public function showEmailForm($id)
+    {
+        $user = User::findOrFail($id);
+        return view('internal.email')->with('user', $user);
+    }
+
+    public function sendEmail(Request $request, $id)
+    {
+        $this->validate($request, [
+            'subject' => 'required',
+            'emailBody' => 'required']);
+        $user = User::findOrFail($id);
+        $request['from'] = Auth::user()->email;
+        $request['to'] = $user->email;
+
+        Mail::send([], [], function ($message) use ($request) {
+            $message->from($request['from']);
+            $message->to($request['to']);
+            $message->subject($request['subject']);
+            $message->setBody($request['emailBody'], 'text/html');
+        });
+        return \redirect()->route('openUser', ['id' => $user->id])->with('info', 'Email sent successfully');
+    }
+
+    public function sendMessage(Request $request, $id)
+    {
+
+        $officer = User::findOrFail($id);
+        $message = new \App\Message();
+        $message->subject = 'Message from ' . Auth::user()->name;
+        $message->body = $request['message'];
+        $message->officer_id = $officer->id;
+        $message->save();
+
+        return redirect()->route("viewOfficersChief")->with('info', 'Message sent successfully');
+    }
+
 }

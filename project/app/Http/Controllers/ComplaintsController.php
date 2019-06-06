@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Complaint;
 use App\Citizen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class ComplaintsController extends Controller
@@ -14,7 +15,13 @@ class ComplaintsController extends Controller
     public function index()
     {
         $complaints = Complaint::where('institution', 'police')->orderBy('status', 'desc')->get();
-        return view('employee.viewComplaints')->with('complaints', $complaints);
+        $complaints2 = Complaint::where('institution', 'internal affairs')->orderBy('status', 'desc')->get();
+
+        if (Auth::user()->role == 4) {
+            return view('internal.viewComplaints')->with('complaints', $complaints2);
+        } else {
+            return view('employee.viewComplaints')->with('complaints', $complaints);
+        }
 
     }
 
@@ -30,8 +37,11 @@ class ComplaintsController extends Controller
     public function show($id)
     {
         $complaint = Complaint::findOrFail($id);
-
-        return view('employee.viewComplaint')->with('complaint', $complaint);
+        if ($complaint->institution == 'internal affairs') {
+            return view('internal.viewComplaint')->with('complaint', $complaint);
+        } else {
+            return view('employee.viewComplaint')->with('complaint', $complaint);
+        }
     }
 
     public function handle(Request $request, $id)

@@ -1,6 +1,6 @@
 @extends('inc.layout')
 @section('title')
-    Services
+    SPS » Services
 @stop
 
 @section('content')
