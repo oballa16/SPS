@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ChiefAccess
+class Suspended
 {
     /**
      * Handle an incoming request.
@@ -16,15 +16,11 @@ class ChiefAccess
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guest()) {
-            return abort(403);
-        }
-        if (Auth::user()->role == 3 and Auth::user()->suspended == 0) {
+
+        if (Auth::user()->suspended == 0) {
             return $next($request);
-        }
-        else if (Auth::user()->role == 3 and Auth::user()->suspended == 1) {
+        } else {
             return redirect()->back()->with('info', 'You are suspended from using the system');
         }
-        return redirect()->back();
     }
 }

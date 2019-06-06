@@ -20,7 +20,13 @@
             </div>
         </div>
     @endif
-
+    <div class="container-fluid">
+        @if (session('info'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
     <div id="content-wrapper" style="margin-top: 20px">
 
         <div class="container-fluid">
