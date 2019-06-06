@@ -23,7 +23,13 @@
             </div>
         </div>
     @endif
-
+    <div class="container-fluid">
+        @if (session('info'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
     <div id="content-wrapper" style="margin-top: 20px">
 
         <div class="container-fluid">
@@ -46,7 +52,7 @@
                             </div>
                             <div class="mr-5">Investigations</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="{{route('showAllInv')}}>
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('viewInvestigations')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>

@@ -67,7 +67,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/Reports'),
         ],
-
+        'internal' => [
+            'driver' => 'local',
+            'root' => storage_path('app/Internal'),
+        ],
     ],
 
 ];

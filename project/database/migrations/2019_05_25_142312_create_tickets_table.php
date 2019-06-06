@@ -15,8 +15,8 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('license_number')->unique();
-            $table->string('chassis_number')->unique();
+            $table->string('license_number');
+            $table->string('chassis_number');
             $table->timestamps();
         });
     }

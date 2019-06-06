@@ -55,6 +55,37 @@ Route::post('services/tickets', 'ServicesController@showTickets')->name('tickets
 
 
 /*
+ * Police Officer Routes
+ */
+
+Route::group(['middleware' => ['auth', 'officer']], function () {
+
+    Route::get('cases/addCase', 'CasesController@create')->name('addCase');
+    Route::post('cases/addCase', 'CasesController@store')->name('storeCase');
+    Route::get('/cases/{id}', 'CasesController@index')->name('viewCases'); //id = officer id
+    Route::get('/cases/{id}/file-upload', 'CasesController@showCaseFileUpload')->name('showCaseFileUpload'); // id = case id
+    Route::post('/cases/{id}/file-upload', 'CasesController@uploadCaseFile')->name('uploadCaseFile'); // id == case id
+    Route::get('cases/{id}/people', 'CasesController@showPeopleForm')->name('showPeopleForm'); // id == case->id
+    Route::post('cases/{id}/people', 'CasesController@addPeople')->name('addPeople');
+    Route::delete('cases/{id}/people', 'CasesController@deletePeople')->name('deletePeople');
+    Route::post('cases/{id}/citizenSearch', 'CasesController@citizenSearch')->name('citizenSearchCase');
+
+    Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
+    Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
+    Route::patch('cases/{id}/close', 'CasesController@closeCase')->name('closeCase');
+
+
+    Route::delete('/cases/{id}/file-upload/{fileid}', 'CasesController@deleteCaseFile')->name('deleteCaseFile'); // id -> case-id
+
+
+    Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask'); // id == officer-id
+    Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask'); // id == officer - id
+
+
+});
+
+
+/*
  * Chief Police Officer Routes
  */
 
@@ -72,6 +103,8 @@ Route::group(['middleware' => ['auth', 'chief']], function () {
  */
 
 Route::group(['middleware' => 'auth', 'internal'], function () {
+
+
     Route::post('/users/{id}', 'UserController@sendMessage')->name('sendMessage');
     Route::get('/users/{id}/investigation', 'UserController@internalInv')->name('startInvestigation');
     Route::post('/users/investigation', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
@@ -85,7 +118,13 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
     Route::post('/complaints/employee', 'UserController@showEmployees')->name('showEmployees');
     Route::get('/users/watch/{id}', 'UserController@addToWatch')->name('addToWatch');
 
+    Route::get('/investigations', 'IntAffairsInvestigationsController@index')->name('viewInvestigations');
 
+    Route::get('/investigations/{id}/file-upload', 'IntAffairsInvestigationsController@showFileUpload')->name('showInvestFileUpload');
+    Route::delete('/investigations/{id}/file-delete', 'IntAffairsInvestigationsController@deleteFile')->name('deleteInvestFile');
+    Route::post('/investigations/{id}/upload', 'IntAffairsInvestigationsController@uploadFile')->name('uploadInvestFile');
+    Route::patch('/investigations/{id}', 'IntAffairsInvestigationsController@closeInvestigation')->name('closeInvestigation');
+    Route::get('investigation/{id}/suspend', 'IntAffairsInvestigationsController@suspendEmployee')->name('suspendEmployee');
 });
 
 
@@ -93,7 +132,7 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
  * Routes for all users
  */
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'not-suspended']], function () {
     /*
      * Change Password
      */
@@ -146,34 +185,6 @@ Route::group(['middleware' => ['auth', 'employee']], function () {
 });
 
 
-/*
- * Police Officer Routes
- */
 
-Route::group(['middleware' => ['auth', 'officer']], function () {
-
-    Route::get('cases/addCase', 'CasesController@create')->name('addCase');
-    Route::post('cases/addCase', 'CasesController@store')->name('storeCase');
-    Route::get('/cases/{id}', 'CasesController@index')->name('viewCases'); //id = officer id
-    Route::get('/cases/{id}/file-upload', 'CasesController@showCaseFileUpload')->name('showCaseFileUpload'); // id = case id
-    Route::post('/cases/{id}/file-upload', 'CasesController@uploadCaseFile')->name('uploadCaseFile'); // id == case id
-    Route::get('cases/{id}/people', 'CasesController@showPeopleForm')->name('showPeopleForm'); // id == case->id
-    Route::post('cases/{id}/people', 'CasesController@addPeople')->name('addPeople');
-    Route::delete('cases/{id}/people', 'CasesController@deletePeople')->name('deletePeople');
-    Route::post('cases/{id}/citizenSearch', 'CasesController@citizenSearch')->name('citizenSearchCase');
-
-    Route::get('cases/{id}/edit', 'CasesController@showEditForm')->name('showEditForm');
-    Route::patch('cases/{id}/edit', 'CasesController@editCase')->name('editCase');
-    Route::patch('cases/{id}/close', 'CasesController@closeCase')->name('closeCase');
-
-
-    Route::delete('/cases/{id}/file-upload/{fileid}', 'CasesController@deleteCaseFile')->name('deleteCaseFile'); // id -> case-id
-
-
-    Route::get('/cases/{id}/tasks', 'CasesController@showTask')->name('showTask'); // id == officer-id
-    Route::post('/cases/{id}/tasks', 'CasesController@addTask')->name('addTask'); // id == officer - id
-
-
-});
 
 
