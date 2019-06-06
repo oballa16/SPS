@@ -65,7 +65,7 @@ class TasksController extends Controller
             ['report' => 'required|mimes:pdf']);
         $task = Task::findOrFail($id);
         $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
-        Storage::disk('reports')->put($name,$request['report']);
+        Storage::disk('reports')->putFileAs('reports', $request['report'], $name);
         $file = new File();
         $file->filename = $name;
         $file->case_id = $task->caseRelated->id;
