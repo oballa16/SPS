@@ -108,6 +108,7 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
     Route::post('/users/{id}', 'UserController@sendMessage')->name('sendMessage');
     Route::get('/users/{id}/investigation', 'UserController@internalInv')->name('startInvestigation');
     Route::post('/users/investigation', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
+    Route::get('/internal/{id}','UserController@showInvestigations')->name('showAllInv');
     Route::get('/users', 'UserController@index')->name('userLookup');
     Route::post('/users', 'UserController@index2')->name('userSearch');
     Route::get('/users/{id}', 'UserController@show')->name('openUser');
