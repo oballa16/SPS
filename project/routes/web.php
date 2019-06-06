@@ -103,6 +103,8 @@ Route::group(['middleware' => ['auth', 'chief']], function () {
  */
 
 Route::group(['middleware' => 'auth', 'internal'], function () {
+
+
     Route::post('/users/{id}', 'UserController@sendMessage')->name('sendMessage');
     Route::get('/users/{id}/investigation', 'UserController@internalInv')->name('startInvestigation');
     Route::post('/users/investigation', 'IntAffairsInvestigationsController@store')->name('saveInvestigation');
@@ -115,7 +117,13 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
     Route::post('/complaints/employee', 'UserController@showEmployees')->name('showEmployees');
     Route::get('/users/watch/{id}', 'UserController@addToWatch')->name('addToWatch');
 
+    Route::get('/investigations', 'IntAffairsInvestigationsController@index')->name('viewInvestigations');
 
+    Route::get('/investigations/{id}/file-upload', 'IntAffairsInvestigationsController@showFileUpload')->name('showInvestFileUpload');
+    Route::delete('/investigations/{id}/file-delete', 'IntAffairsInvestigationsController@deleteFile')->name('deleteInvestFile');
+    Route::post('/investigations/{id}/upload', 'IntAffairsInvestigationsController@uploadFile')->name('uploadInvestFile');
+    Route::patch('/investigations/{id}', 'IntAffairsInvestigationsController@closeInvestigation')->name('closeInvestigation');
+    Route::get('investigation/{id}/suspend', 'IntAffairsInvestigationsController@suspendEmployee')->name('suspendEmployee');
 });
 
 
@@ -123,7 +131,7 @@ Route::group(['middleware' => 'auth', 'internal'], function () {
  * Routes for all users
  */
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'not-suspended']], function () {
     /*
      * Change Password
      */

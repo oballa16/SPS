@@ -13,4 +13,9 @@ class Investigations extends Model
         return $this->hasMany(InvestigationFile::class, 'investigation_id', 'id');
     }
 
+    public function emp()
+    {
+        return $this->belongsTo(User::class, 'emp_id', 'id');
+    }
+
 }
