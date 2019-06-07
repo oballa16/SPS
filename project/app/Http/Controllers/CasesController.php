@@ -122,17 +122,25 @@ class CasesController extends Controller
         abort_if(Auth::user()->role == '1', 403);
         $case = Cases::where('id', $caseid)->get()->first();
         $files = $case->files()->get();
-        $zip_file = 'Case_' . $case->title;
+        $title = str_replace(' ', '_', $case->title);
+        $zip_file = 'Case_' . $title;
+
         $zipper = new Zipper();
         $headers = ["Content-Type" => "application/zip"];
         $fileName = $zip_file . ".zip"; // name of zip
 
-        foreach ($files as $file) {
-            $zipper->make(public_path('/documents/' . $zip_file . '.zip'))
-                ->add(storage_path('app\Reports\\') . $file->filename)->close(); //files to be zipped
+        if (sizeof($files) == 0) {
+            return redirect()->back()->with('info', 'No files to zip');
+        } else {
+//            dd($files);
+            foreach ($files as $file) {
+                $zipper->make(public_path('documents\\' . $zip_file . '.zip'))
+                    ->add(storage_path('app/Reports/') . $file->filename)->close(); //files to be zipped
+            }
+
+            return response()
+                ->download(public_path('/documents/' . $fileName), $fileName, $headers);
         }
-        return response()
-            ->download(public_path('/documents/' . $fileName), $fileName, $headers);
     }
 
     public function openArchive()
@@ -176,7 +184,7 @@ class CasesController extends Controller
             ['report' => 'required|mimes:pdf']);
         $case = Cases::findOrFail($id);
         abort_unless($case->filedBy->id == Auth::user()->id or Auth::user()->role == 3, 403);
-        $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
+        $name = date('dmYHis', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
 //        dd($name);
         Storage::disk('reports')->putFileAs('reports', $request['report'], $name);
         $file = new File();
