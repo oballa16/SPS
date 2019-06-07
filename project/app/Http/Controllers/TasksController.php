@@ -64,7 +64,7 @@ class TasksController extends Controller
         $this->validate($request,
             ['report' => 'required|mimes:pdf']);
         $task = Task::findOrFail($id);
-        $name = date('dmY', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
+        $name = date('dmYHis', strtotime(now())) . '-' . $request->file('report')->getClientOriginalName();
         Storage::disk('reports')->putFileAs('reports', $request['report'], $name);
         $file = new File();
         $file->filename = $name;
